@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+:focus::placeholder {
+  color: inherit;
+  opacity: .25;
+}
+
+:root {
+  background: #fff;
+  color: #000;
+  font: normal normal 15px/1.6 sans-serif;
+}
+
+:root, body {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+a {
+  color: #00f;
+  text-decoration: none;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+a:focus {
+  color: #f00;
+}
+
+abbr {
+  border: 0;
+  text-decoration: none;
+}
+
+abbr[title] {
+  cursor: help;
+}
+
+abbr[title]:hover {
+  text-decoration: underline;
+}
+
+b, legend, strong, summary, th {
+  font-weight: bold;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+del, s {
+  text-decoration: line-through;
+}
+
+em, i, var {
+  font-style: italic;
+}
+
+ins, u {
+  text-decoration: underline;
+}
+
+blockquote {
+  font-size: 120%;
+}
+
+blockquote blockquote {
+  font-size: 100%;
+  margin-left: 1rem;
+}
+
+caption, figcaption, small, sub, sup {
+  font-size: 90%;
+}
+
+code, .code {
+  font-family: monospace;
+  font-size: 90%;
+  word-wrap: break-word;
+}
+
+details summary {
+  font-size: 90%;
+  cursor: pointer;
+}
+
+fieldset {
+  border: 1px solid;
+  padding: 1rem;
+}
+
+figure {
+  text-align: center;
+}
+
+figure figcaption {
+  margin: .5rem 0 0;
+}
+
+figure img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 240%;
+}
+
+h2 {
+  font-size: 190%;
+}
+
+h3 {
+  font-size: 150%;
+}
+
+h4 {
+  font-size: 120%;
+}
+
+h5, h6 {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+hr {
+  background: none;
+  color: inherit;
+  border: 0;
+  border-top: 1px dashed;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+legend {
+  padding: 0 .75rem;
+  font-size: 90%;
+}
+
+mark {
+  background: #ff0;
+  color: inherit;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li p:last-child {
+  margin-bottom: 1rem;
+}
+
+sub, sup {
+  position: relative;
+  vertical-align: middle;
+  top: .25rem;
+}
+
+sup {
+  top: -.25rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+dl, ol, ul {
+  margin-left: 2rem;
+}
+
+ol > ol,
+ol > ul,
+ul > ol,
+ul > ul {
+  margin-left: 1rem;
+}
+
+pre {
+  white-space: pre-wrap;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+pre code {
+  display: block;
+  padding: 1rem 1.25rem;
+  margin: .5rem 0;
+  background: #000;
+  color: #fff;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+* + blockquote,
+* + details,
+* + dl,
+* + fieldset,
+* + figure,
+* + form,
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6,
+* + hr,
+* + ol,
+* + p,
+* + pre,
+* + table,
+* + ul,
+* + .p {
+  margin-top: 1rem;
+}
+
+legend + fieldset,
+legend + p,
+legend + .p {
+  margin-top: -.5rem;
+}
