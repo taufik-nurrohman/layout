@@ -103,3 +103,30 @@ table caption {
 legend + * {
   margin-top: 0;
 }
+
+.code {
+  font-family: monospace;
+}
+.button,
+.input,
+.select,
+.textarea {
+  display: inline-block;
+  width: 10rem;
+  background: #ccc;
+  border: 1px solid;
+  padding: 0 .25rem;
+}
+.button {
+  width: auto;
+}
+.table th,
+.table td {
+  border: 1px solid;
+  padding: .5rem 1rem;
+  vertical-align: top;
+}
+.width {
+  display: block;
+  width: 100%;
+}
