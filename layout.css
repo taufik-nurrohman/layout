@@ -112,13 +112,16 @@ legend + * {
 .select,
 .textarea {
   display: inline-block;
-  width: 10rem;
-  background: #ccc;
+  vertical-align: middle;
+  width: 15rem;
   border: 1px solid;
-  padding: 0 .25rem;
+  padding: .25rem .5rem;
 }
 .button {
   width: auto;
+  background: #ccc;
+  padding-right: .75rem;
+  padding-left: .75rem;
 }
 .table th,
 .table td {
