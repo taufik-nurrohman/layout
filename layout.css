@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  background: none;
+  color: inherit;
+  border: 0;
+  text-align: left;
+}
+:root {
+  font: normal normal 16px/1.5 sans-serif;
+  background: #fff;
+  color: #000;
+  padding: 1.5rem;
+}
+a {
+  color: #00f;
+  text-decoration: none;
+}
+a:focus {
+  color: #f00;
+}
+b, legend, strong, th {
+  font-weight: bold;
+}
+em, i, var {
+  font-style: italic;
+}
+blockquote {
+  font-size: 1.185rem;
+}
+code {
+  font-family: monospace;
+}
+fieldset {
+  border: 1px solid;
+  padding: 1.5rem;
+}
+figcaption {
+  margin-top: .5rem;
+}
+figure {
+  text-align: center;
+}
+/* https://www.modularscale.com/?10,60&px&1.5 */
+h1 {
+  font-size: 3.375rem;
+}
+h2 {
+  font-size: 2.667rem;
+}
+h3 {
+  font-size: 2.25rem;
+}
+h4 {
+  font-size: 1.778rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+h6 {
+  font-size: 1.185rem;
+}
+pre code {
+  display: block;
+  background: #000;
+  color: #fff;
+  padding: 1rem 1.25rem;
+  overflow: auto;
+}
+small {
+  font-size: .79rem;
+}
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+table caption {
+  caption-side: bottom;
+  margin-top: .5rem;
+}
+* + blockquote,
+* + details,
+* + dl,
+* + fieldset,
+* + figure,
+* + form,
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6,
+* + ol,
+* + p,
+* + pre,
+* + table,
+* + ul {
+  margin-top: 1.5rem;
+}
+legend + * {
+  margin-top: 0;
+}
