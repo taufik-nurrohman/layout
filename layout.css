@@ -7,6 +7,7 @@
   color: inherit;
   border: 0;
   text-align: left;
+  word-wrap: break-word;
 }
 :root {
   font: normal normal 16px/1.5 sans-serif;
@@ -21,17 +22,24 @@ a {
 a:focus {
   color: #f00;
 }
-b, legend, strong, th {
+b, h1, h2, h3, h4, h5, h6, legend, strong, th {
   font-weight: bold;
-}
-em, i, var {
-  font-style: italic;
 }
 blockquote {
   font-size: 1.185rem;
 }
+caption,
+figcaption {
+  text-align: center;
+}
 code {
   font-family: monospace;
+}
+dl, ol, ul {
+  margin-left: 2rem;
+}
+em, i, var {
+  font-style: italic;
 }
 fieldset {
   border: 1px solid;
@@ -42,6 +50,9 @@ figcaption {
 }
 figure {
   text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.25;
 }
 /* https://www.modularscale.com/?10,60&px&1.5 */
 h1 {
@@ -62,15 +73,46 @@ h5 {
 h6 {
   font-size: 1.185rem;
 }
+hr {
+  border: 0;
+  border-top: 1px dashed;
+}
+label {
+  cursor: pointer;
+}
+legend {
+  padding: 0 .5rem;
+}
+mark {
+  background: #ff0;
+}
+ol {
+  list-style: decimal;
+}
+ol > ol,
+ol > ul,
+ul > ol,
+ul > ul {
+  margin-left: 1rem;
+}
 pre code {
   display: block;
   background: #000;
   color: #fff;
   padding: 1rem 1.25rem;
+  white-space: pre-wrap;
   overflow: auto;
 }
 small {
   font-size: .79rem;
+}
+sub, sup {
+  position: relative;
+  vertical-align: middle;
+  top: .25rem;
+}
+sup {
+  top: -.25rem;
 }
 table {
   table-layout: fixed;
@@ -80,6 +122,9 @@ table {
 table caption {
   caption-side: bottom;
   margin-top: .5rem;
+}
+ul {
+  list-style: disc;
 }
 * + blockquote,
 * + details,
@@ -122,6 +167,16 @@ legend + * {
   background: #ccc;
   padding-right: .75rem;
   padding-left: .75rem;
+  cursor: pointer;
+}
+.input[type=color],
+.input[type=checkbox],
+.input[type=file],
+.input[type=image],
+.input[type=radio],
+.input[type=range],
+.select {
+  cursor: pointer;
 }
 .table th,
 .table td {
