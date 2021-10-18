@@ -12,7 +12,7 @@
 }
 
 :root {
-  --color-accent: #00f;
+  --accent: #006;
   --color: #000;
   --fill: #fff;
   --gap: 1.5rem;
@@ -22,17 +22,14 @@
   padding: var(--gap);
 }
 
-:focus {
-  outline: 0;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
+:disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 a,
 details summary {
-  color: var(--color-accent);
+  color: var(--accent);
 }
 
 abbr {
@@ -157,10 +154,6 @@ legend {
   padding: 0 .5rem;
 }
 
-legend + * {
-  margin-top: 0;
-}
-
 mark {
   background: #ff0;
 }
@@ -220,6 +213,7 @@ ul {
 * + h4,
 * + h5,
 * + h6,
+* + hr,
 * + ol,
 * + p,
 * + pre,
@@ -227,6 +221,10 @@ ul {
 * + ul,
 * + .p {
   margin-top: var(--gap);
+}
+
+legend + * {
+  margin-top: 0;
 }
 
 .code {
@@ -237,7 +235,7 @@ ul {
 .input,
 .select,
 .textarea {
-  accent-color: var(--color-accent);
+  accent-color: var(--accent);
   border: 1px solid;
   color: inherit;
   display: inline-block;
@@ -248,7 +246,7 @@ ul {
 }
 
 .button {
-  background: var(--color-accent);
+  background: var(--accent);
   border-color: transparent;
   color: var(--fill);
   cursor: pointer;
@@ -285,10 +283,10 @@ ul {
 }
 
 .input[type=checkbox],
+.input[type=file],
 .input[type=image],
 .input[type=radio],
-.input[type=range],
-.input[type=file] {
+.input[type=range] {
   background: 0 0;
   border: 0;
   padding: 0;

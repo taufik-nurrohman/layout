@@ -25,7 +25,7 @@ Name | Description
 
 Name | Description
 ---- | -----------
-`--color-accent` | TODO
-`--color` | TODO
-`--fill` | TODO
-`--gap` | TODO
+`--accent` | Accent color for form elements.
+`--color` | Text color.
+`--fill` | Fill color.
+`--gap` | Distance between elements.
