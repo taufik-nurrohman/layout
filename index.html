@@ -30,7 +30,7 @@
 <p>Paragraph</p>
 <p><small>Small</small></p>
 <p>Suspendisse in sagittis purus, at lobortis tortor. Donec faucibus, urna eget volutpat mollis, ligula erat tincidunt neque, sit amet pharetra libero metus at mauris. Aliquam metus neque, pellentesque id euismod vel, fermentum et nisl. Sed vulputate ipsum dapibus augue sollicitudin cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus bibendum pulvinar ipsum ut condimentum. Ut vitae rutrum leo.</p>
-<p>Lorem <strong>bold</strong> ipsum dolor <em>italic</em> sit amet, consectetuer <code>code</code> adipiscing elit, sed diam nonummy nibh euismod <mark>mark</mark> tincidunt ut laoreet <kbd>kbd</kbd> dolore magna aliquam erat volutpat. Ut wisi <del>del</del> enim <ins>ins</ins> ad minim veniam, quis nostrud H<sub>2</sub>O exerci tation 10<sup>2</sup> ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+<p>Lorem <strong>bold</strong> ipsum dolor <em>italic</em> sit amet, <small>small</small> consectetuer <code>code</code> adipiscing elit, sed diam <abbr title="Yo!">abbr</abbr> nonummy nibh euismod <mark>mark</mark> tincidunt ut laoreet <kbd>kbd</kbd> dolore magna aliquam erat volutpat. Ut wisi <del>del</del> enim <ins>ins</ins> ad minim veniam, quis nostrud H<sub>2</sub>O exerci tation 10<sup>2</sup> ullamcorper suscipit <dfn>dfn</dfn> lobortis nisl ut aliquip ex ea commodo consequat.</p>
 <pre><code>function foo(bar = true) {
     return bar ?? 'baz';
 }</code></pre>
@@ -74,7 +74,8 @@
 <ol>
   <li>List Item 1</li>
   <li>List Item 2</li>
-  <li>List Item 3 <ol>
+  <li>List Item 3
+    <ol>
       <li>List Item 3.1</li>
       <li>List Item 3.2</li>
       <li>List Item 3.3</li>
@@ -82,11 +83,23 @@
   </li>
   <li>List Item 4</li>
 </ol>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+<ul>
+  <li>List Item 1</li>
+  <li>List Item 2</li>
+  <li>List Item 3
+    <ul>
+      <li>List Item 3.1</li>
+      <li>List Item 3.2</li>
+      <li>List Item 3.3</li>
+    </ul>
+  </li>
+  <li>List Item 4</li>
+</ul>
 <ol>
   <li>List Item 1</li>
   <li>List Item 2</li>
-  <li>List Item 3 <ul>
+  <li>List Item 3
+    <ul>
       <li>List Item 3.1
         <ol>
           <li>List item 3.1.1</li>
