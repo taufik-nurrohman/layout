@@ -62,7 +62,8 @@ figcaption {
   text-align: center;
 }
 
-code {
+code,
+.code {
   font-family: monospace;
 }
 
@@ -233,10 +234,6 @@ legend + * {
   margin-top: 0;
 }
 
-.code {
-  font-family: monospace;
-}
-
 .button,
 .input,
 .select,
@@ -275,8 +272,8 @@ legend + * {
   width: 1rem;
 }
 
-.input[type=color],
 .input[type=checkbox],
+.input[type=color],
 .input[type=file],
 .input[type=image],
 .input[type=radio],
@@ -309,7 +306,6 @@ legend + * {
 }
 
 ::-webkit-color-swatch-wrapper {
-  margin: 0;
   padding: 0;
 }
 
