@@ -151,6 +151,9 @@ kbd {
 }
 
 legend {
+  background: var(--fill);
+  float: left;
+  margin: calc(var(--gap) * -1.5) 0 0;
   padding: 0 .5rem;
 }
 
@@ -226,6 +229,7 @@ ul {
 }
 
 legend + * {
+  clear: left;
   margin-top: 0;
 }
 
@@ -241,8 +245,9 @@ legend + * {
   border: 1px solid;
   color: inherit;
   display: inline-block;
-  line-height: 100%;
-  padding: .5rem .5rem;
+  height: 2.25rem;
+  line-height: calc(2.25rem - 2px); /* Minus the `border-width` */
+  padding: 0 .5rem;
   vertical-align: middle;
   width: 12rem;
 }
@@ -255,10 +260,6 @@ legend + * {
   padding-left: .65rem;
   padding-right: .65rem;
   width: auto;
-}
-
-.button:focus-visible {
-  outline-color: var(--color);
 }
 
 .input[type=color],
@@ -291,6 +292,24 @@ legend + * {
 .input[type=range] {
   background: 0 0;
   border: 0;
+  padding: 0;
+}
+
+.select {
+  -moz-padding-start: calc(.5rem - 3px); /* <https://github.com/twbs/bootstrap/issues/32636> */
+  appearance: none;
+}
+
+::-moz-color-swatch {
+  border: 0;
+}
+
+::-webkit-color-swatch {
+  border: 0;
+}
+
+::-webkit-color-swatch-wrapper {
+  margin: 0;
   padding: 0;
 }
 
