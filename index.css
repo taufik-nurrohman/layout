@@ -152,9 +152,6 @@ kbd {
 }
 
 legend {
-  background: var(--fill);
-  float: left;
-  margin: calc(var(--gap) * -1.5) 0 0;
   padding: 0 .5rem;
 }
 
