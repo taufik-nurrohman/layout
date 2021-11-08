@@ -181,12 +181,16 @@ sup {
 sub, sup {
   line-height: 0;
   position: relative;
-  top: .5rem;
-  vertical-align: baseline;
+}
+
+sub {
+  top: .25rem;
+  vertical-align: sub;
 }
 
 sup {
-  top: -.5rem;
+  top: -.25rem;
+  vertical-align: super;
 }
 
 table {
