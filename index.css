@@ -22,11 +22,6 @@
   padding: var(--gap);
 }
 
-:disabled {
-  opacity: .5;
-  cursor: not-allowed;
-}
-
 a,
 details summary {
   color: var(--accent);
@@ -307,6 +302,11 @@ legend + * {
 
 ::-webkit-color-swatch-wrapper {
   padding: 0;
+}
+
+:disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .table th,
