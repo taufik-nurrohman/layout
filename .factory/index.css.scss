@@ -1,3 +1,8 @@
+$accent: #006;
+$color: #000;
+$fill: #fff;
+$gap: 1.5rem;
+
 * {
   background: 0 0;
   border: 0;
@@ -12,17 +17,17 @@
 }
 
 :root {
-  background: #fff;
-  color: #000;
+  background: $fill;
+  color: $color;
   font: normal normal 16px/1.5 sans-serif;
-  padding: 1.5rem;
+  padding: $gap;
   text-align: left;
 }
 
-[role=link],
+[role='link'],
 a,
 details summary {
-  color: #006;
+  color: $accent;
 }
 
 abbr {
@@ -49,7 +54,7 @@ blockquote {
 
 caption,
 figcaption {
-  margin: 0.5rem 0 0;
+  margin: .5rem 0 0;
   text-align: center;
 }
 
@@ -57,7 +62,7 @@ code {
   font-family: monospace;
 }
 
-[role=deletion],
+[role='deletion'],
 del,
 s {
   text-decoration: line-through;
@@ -79,13 +84,13 @@ var {
 dl,
 ol,
 ul {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin-left: $gap;
+  margin-right: $gap;
 }
 
 fieldset {
   border: 1px solid;
-  padding: 1.5rem;
+  padding: $gap;
 }
 
 figure {
@@ -105,23 +110,18 @@ h6 {
 h1 {
   font-size: 3.375rem;
 }
-
 h2 {
   font-size: 2.667rem;
 }
-
 h3 {
   font-size: 2.25rem;
 }
-
 h4 {
   font-size: 1.778rem;
 }
-
 h5 {
   font-size: 1.5rem;
 }
-
 h6 {
   font-size: 1.185rem;
 }
@@ -137,34 +137,40 @@ img {
 }
 
 /* `<input id="r:0" type="radio"> <label for="r:0">Radio</label>` */
-input[id] + label[for] {
-  display: inline-block;
-  vertical-align: middle;
+input[id] {
+  + label[for] {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
-[role=insertion],
+[role='insertion'],
 ins {
   text-decoration: underline;
 }
 
 kbd {
-  background: #000;
-  color: #fff;
+  background: $color;
+  color: $fill;
   display: inline-block;
-  padding: 0 0.25rem;
+  padding: 0 .25rem;
 }
 
 /* `<label><input type="radio"> <span>Radio</span></label>` */
-label input + span {
-  display: inline-block;
-  vertical-align: middle;
+label {
+  input {
+    + span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
 
 legend {
-  padding: 0 0.5rem;
+  padding: 0 .5rem;
 }
 
-[role=mark],
+[role='mark'],
 mark {
   background: #ff0;
 }
@@ -174,22 +180,21 @@ ol {
 }
 
 pre code {
-  background: #000;
-  color: #fff;
+  background: $color;
+  color: $fill;
   display: block;
   overflow: auto;
-  padding: 0.75rem 1rem;
+  padding: .75rem 1rem;
   white-space: pre-wrap;
 }
 
 small,
 sub,
 sup {
-  font-size: 0.79rem;
+  font-size: .79rem;
 }
 
-sub,
-sup {
+sub, sup {
   line-height: 0;
 }
 
@@ -205,147 +210,151 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   width: 100%;
-}
-table caption {
-  caption-side: bottom;
-}
-table th,
-table td {
-  border: 1px solid;
-  padding: 0.5rem 0.65rem;
-  vertical-align: top;
+  caption {
+    caption-side: bottom;
+  }
+  th,
+  td {
+    border: 1px solid;
+    padding: .5rem .65rem;
+    vertical-align: top;
+  }
 }
 
 ul {
   list-style: disc;
 }
 
-* + blockquote,
-* + details,
-* + dl,
-* + dt,
-* + fieldset,
-* + figure,
-* + form,
-* + h1,
-* + h2,
-* + h3,
-* + h4,
-* + h5,
-* + h6,
-* + hr,
-* + ol,
-* + p,
-* + pre,
-* + table,
-* + ul {
-  margin-top: 1.5rem;
+* {
+  + blockquote,
+  + details,
+  + dl,
+  + dt,
+  + fieldset,
+  + figure,
+  + form,
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6,
+  + hr,
+  + ol,
+  + p,
+  + pre,
+  + table,
+  + ul {
+    margin-top: $gap;
+  }
 }
 
-legend + * {
-  margin-top: 0;
+legend {
+  + * {
+    margin-top: 0;
+  }
 }
 
-[role=button],
-[role=combobox],
-[role=listbox],
-[role=searchbox],
-[role=spinbutton],
-[role=textbox],
+[role='button'],
+[role='combobox'],
+[role='listbox'],
+[role='searchbox'],
+[role='spinbutton'],
+[role='textbox'],
 button,
 input,
 output,
 select,
 textarea {
-  accent-color: #006;
+  accent-color: $accent;
   border: 1px solid;
   color: inherit;
   display: inline-block;
   height: 2.25rem;
-  line-height: calc(2.25rem - 2px);
-  /* Minus the `border-width` */
-  padding: 0 0.5rem;
+  line-height: calc(2.25rem - 2px); /* Minus the `border-width` */
+  padding: 0 .5rem;
   vertical-align: middle;
   width: 12rem;
 }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  margin: 0;
-  outline: 0;
-  padding: 0;
+button,
+input {
+  &::-moz-focus-inner {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+  }
 }
 
-[role=button],
-[role=button]:any-link,
+[role='button'],
+[role='button']:any-link,
 button,
-input[type=button],
-input[type=reset],
-input[type=submit] {
-  background: #006;
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  background: $accent;
   border-color: transparent;
-  color: #fff;
+  color: $fill;
   cursor: pointer;
-  padding-left: 0.65rem;
-  padding-right: 0.65rem;
+  padding-left: .65rem;
+  padding-right: .65rem;
   width: auto;
 }
 
-input[type=color],
-input[type=image] {
+input[type='color'],
+input[type='image'] {
   height: 2.25rem;
   padding: 0;
   width: 2.25rem;
 }
 
-input[type=image] {
+input[type='image'] {
   height: auto;
   width: auto;
 }
 
-[role=checkbox],
-[role=radio],
-[role=switch],
-input[type=checkbox],
-input[type=radio] {
+[role='checkbox'],
+[role='radio'],
+[role='switch'],
+input[type='checkbox'],
+input[type='radio'] {
   height: 1rem;
   width: 1rem;
 }
 
-[role=checkbox],
-[role=radio],
-[role=slider],
-[role=switch],
-input[type=checkbox],
-input[type=color],
-input[type=file],
-input[type=image],
-input[type=radio],
-input[type=range],
+[role='checkbox'],
+[role='radio'],
+[role='slider'],
+[role='switch'],
+input[type='checkbox'],
+input[type='color'],
+input[type='file'],
+input[type='image'],
+input[type='radio'],
+input[type='range'],
 select {
   cursor: pointer;
 }
 
-[role=checkbox],
-[role=radio],
-[role=slider],
-[role=switch],
-input[type=checkbox],
-input[type=file],
-input[type=image],
-input[type=radio],
-input[type=range] {
+[role='checkbox'],
+[role='radio'],
+[role='slider'],
+[role='switch'],
+input[type='checkbox'],
+input[type='file'],
+input[type='image'],
+input[type='radio'],
+input[type='range'] {
   background: 0 0;
   border: 0;
   padding: 0;
 }
 
-[role=combobox],
-[role=listbox],
+[role='combobox'],
+[role='listbox'],
 select {
-  -moz-padding-start: calc(0.5rem - 3px);
-  /* <https://github.com/twbs/bootstrap/issues/32636> */
+  -moz-padding-start: calc(.5rem - 3px); /* <https://github.com/twbs/bootstrap/issues/32636> */
   appearance: none;
 }
 
@@ -361,16 +370,16 @@ select {
   padding: 0;
 }
 
-[role=textbox][aria-multiline=true],
+[role='textbox'][aria-multiline='true'],
 textarea {
   height: auto;
   line-height: inherit;
-  padding-bottom: 0.35rem;
-  padding-top: 0.35rem;
+  padding-bottom: .35rem;
+  padding-top: .35rem;
   resize: vertical;
 }
 
 :disabled {
-  opacity: 0.5;
+  opacity: .5;
   cursor: not-allowed;
 }
