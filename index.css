@@ -220,6 +220,14 @@ ul {
   list-style: disc;
 }
 
+audio,
+video {
+  background: #000;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 * + blockquote,
 * + details,
 * + dl,

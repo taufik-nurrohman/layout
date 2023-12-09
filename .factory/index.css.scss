@@ -225,6 +225,14 @@ ul {
   list-style: disc;
 }
 
+audio,
+video {
+  background: $color;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 * {
   + blockquote,
   + details,
