@@ -20,11 +20,13 @@
 }
 
 [role=link],
-a {
+a,
+details summary {
   color: #00f;
 }
 [role=link]:focus,
-a:focus {
+a:focus,
+details summary:focus {
   color: #f00;
 }
 
@@ -108,7 +110,10 @@ fieldset {
 figure {
   text-align: center;
 }
-figure img {
+figure audio,
+figure iframe,
+figure img,
+figure video {
   border: 1px solid;
   display: block;
 }
@@ -150,6 +155,12 @@ h6 {
 hr {
   border: 0;
   border-top: 1px solid;
+}
+
+iframe {
+  border: 0;
+  display: block;
+  width: 100%;
 }
 
 img {

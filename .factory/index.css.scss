@@ -106,7 +106,7 @@ del {
 
 details {
   summary {
-    @extend label;
+    @extend a, label;
   }
 }
 
@@ -134,7 +134,10 @@ fieldset {
 
 figure {
   text-align: center;
-  img {
+  audio,
+  iframe,
+  img,
+  video {
     border: 1px solid;
     display: block;
   }
@@ -172,6 +175,12 @@ h6 {
 hr {
   border: 0;
   border-top: 1px solid;
+}
+
+iframe {
+  border: 0;
+  display: block;
+  width: 100%;
 }
 
 img {
