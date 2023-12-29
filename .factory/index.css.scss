@@ -1,5 +1,6 @@
 $accent: #006;
 $color: #000;
+$fill-alert: #ffa;
 $fill: #fff;
 $gap: 1.5rem;
 
@@ -152,10 +153,9 @@ ins {
 }
 
 kbd {
-  background: $color;
-  color: $fill;
+  background: #ccc;
   display: inline-block;
-  padding: 0 0.25rem;
+  padding: 0 0.35rem;
 }
 
 /* `<label><input type="radio"> <span>Radio</span></label>` */
@@ -374,4 +374,10 @@ textarea {
 :disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+[role='alert'] {
+  background: $fill-alert;
+  border: 1px dashed;
+  padding: 1rem 1.5rem;
 }

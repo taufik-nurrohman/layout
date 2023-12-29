@@ -151,10 +151,9 @@ ins {
 }
 
 kbd {
-  background: #000;
-  color: #fff;
+  background: #ccc;
   display: inline-block;
-  padding: 0 0.25rem;
+  padding: 0 0.35rem;
 }
 
 /* `<label><input type="radio"> <span>Radio</span></label>` */
@@ -365,4 +364,10 @@ textarea {
 :disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+[role=alert] {
+  background: #ffa;
+  border: 1px dashed;
+  padding: 1rem 1.5rem;
 }
