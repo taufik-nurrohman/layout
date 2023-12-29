@@ -1,18 +1,23 @@
+$color-alert: #000;
 $color-button--focus: #fff;
 $color-button: #fff;
+$color-code: #000;
 $color-input--focus: #000;
 $color-input: #000;
+$color-kbd: #000;
 $color-link--focus: #f00;
 $color-link: #00f;
+$color-mark: #000;
 $color: #000;
 $fill-alert: #ffa;
 $fill-button--focus: #f00;
 $fill-button: #00f;
-$fill-code-block: #ccc;
+$fill-code: #ccc;
 $fill-kbd: #ccc;
 $fill-mark: #ff0;
 $fill: #fff;
-$gap: 1.5rem;
+$stroke-button--focus: #000;
+$stroke-button: #000;
 $stroke-input--focus: #00f;
 $stroke-input: #000;
 
@@ -33,14 +38,13 @@ $stroke-input: #000;
   background: $fill;
   color: $color;
   font: normal normal 16px/1.5 sans-serif;
-  padding: $gap;
+  padding: 1.5rem;
   text-align: left;
 }
 
 [role='link'],
 a {
   color: $color-link;
-  outline: 0;
   &:focus {
     color: $color-link--focus;
   }
@@ -50,7 +54,22 @@ abbr {
   cursor: help;
 }
 
-b,
+b {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+s {
+  text-decoration: line-through;
+}
+
+u {
+  text-decoration: underline;
+}
+
 dt,
 h1,
 h2,
@@ -61,7 +80,7 @@ h6,
 legend,
 strong,
 th {
-  font-weight: bold;
+  @extend b;
 }
 
 blockquote {
@@ -74,17 +93,23 @@ figcaption {
   text-align: center;
 }
 
-code, textarea {
+code {
+  background: $fill-code;
+  color: $color-code;
   font-family: monospace;
 }
 
 [role='deletion'],
-del,
-s {
-  text-decoration: line-through;
+del {
+  @extend s;
 }
 
-details summary,
+details {
+  summary {
+    @extend label;
+  }
+}
+
 label {
   cursor: pointer;
   user-select: none;
@@ -92,25 +117,25 @@ label {
 
 dfn,
 em,
-i,
 var {
-  font-style: italic;
+  @extend i;
 }
 
 dl,
 ol,
 ul {
-  margin-left: $gap;
+  margin-left: 1.5rem;
 }
 
 fieldset {
   border: 1px solid;
-  padding: $gap;
+  padding: 1.5rem;
 }
 
 figure {
   text-align: center;
   img {
+    border: 1px solid;
     display: block;
   }
 }
@@ -154,7 +179,7 @@ img {
   height: auto;
 }
 
-/* `<input id="r:0" type="radio"> <label for="r:0">Radio</label>` */
+// `<input id="radio" type="radio"> <label for="radio">Radio</label>`
 input[id] {
   + label[for] {
     display: inline-block;
@@ -164,16 +189,18 @@ input[id] {
 
 [role='insertion'],
 ins {
-  text-decoration: underline;
+  @extend u;
 }
 
 kbd {
   background: $fill-kbd;
+  border: 2px outset;
+  color: $color-kbd;
   display: inline-block;
   padding: 0 0.35rem;
 }
 
-/* `<label><input type="radio"> <span>Radio</span></label>` */
+// `<label><input type="radio"> <span>Radio</span></label>`
 label {
   input {
     + span {
@@ -190,18 +217,20 @@ legend {
 [role='mark'],
 mark {
   background: $fill-mark;
+  color: $color-mark;
 }
 
 ol {
   list-style: decimal;
 }
 
-pre code {
-  background: $fill-code-block;
-  display: block;
-  overflow: auto;
-  padding: 0.75rem 1rem;
-  white-space: pre-wrap;
+pre {
+  code {
+    display: block;
+    overflow: auto;
+    padding: 0.75rem 1rem;
+    white-space: pre-wrap;
+  }
 }
 
 small,
@@ -220,6 +249,14 @@ sub {
 
 sup {
   vertical-align: super;
+}
+
+svg {
+  display: inline-block;
+  fill: currentColor;
+  height: 1.5rem;
+  vertical-align: middle;
+  width: 1.5rem;
 }
 
 table {
@@ -269,7 +306,7 @@ video {
   + pre,
   + table,
   + ul {
-    margin-top: $gap;
+    margin-top: 1.5rem;
   }
 }
 
@@ -286,18 +323,17 @@ output,
 select,
 textarea {
   accent-color: $fill-button;
-  border: 1px solid $stroke-input;
+  border: 2px solid $stroke-input;
   color: $color-input;
   display: inline-block;
   height: 2.25rem;
-  line-height: calc(2.25rem - 2px); /* Minus the `border-width` */
+  line-height: calc(2.25rem - 4px); /* Minus the `border-width` */
   outline: 0;
   padding: 0 0.5rem;
   vertical-align: middle;
   width: 12rem;
   &:focus {
     border-color: $stroke-input--focus;
-    box-shadow: 0 0 0 3px #{rgba($stroke-input--focus, 0.25)};
     color: $color-input--focus;
   }
 }
@@ -318,65 +354,61 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
+  @extend label;
   background: $fill-button;
-  border-width: 0;
+  border-color: $stroke-button;
   color: $color-button;
-  cursor: pointer;
-  line-height: 2.25rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
   text-align: center;
   width: auto;
   &:focus {
     background: $fill-button--focus;
+    border-color: $stroke-button--focus;
     color: $color-button--focus;
   }
 }
 
-input[type='color'] {
-  height: 2.25rem;
-  padding: 0;
-  width: 2.25rem;
-}
-
-input[type='file'] {
-  width: auto;
-}
-
-input[type='image'] {
-  height: auto;
-  padding: 0;
-  width: auto;
-}
-
-input[type='checkbox'],
-input[type='radio'] {
-  height: 1rem;
-  padding: 0;
-  width: 1rem;
-}
-
-input[type='checkbox'],
-input[type='color'],
-input[type='file'],
-input[type='image'],
-input[type='radio'],
-input[type='range'],
-select {
-  cursor: pointer;
-}
-
-input[type='checkbox'],
-input[type='file'],
-input[type='image'],
-input[type='radio'],
-input[type='range'] {
-  background: 0 0;
-  border: 0;
-  padding: 0;
+input {
+  &[type='checkbox'],
+  &[type='file'],
+  &[type='image'],
+  &[type='radio'],
+  &[type='range'] {
+    background: 0 0;
+    border: 0;
+  }
+  &[type='checkbox'],
+  &[type='color'],
+  &[type='file'],
+  &[type='image'],
+  &[type='radio'],
+  &[type='range'] {
+    cursor: pointer;
+  }
+  &[type='checkbox'],
+  &[type='color'],
+  &[type='radio'] {
+    height: 1rem;
+    padding: 0;
+    width: 1rem;
+  }
+  &[type='color'] {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+  &[type='file'],
+  &[type='image'] {
+    width: auto;
+  }
+  &[type='image'] {
+    height: auto;
+    padding: 0;
+  }
 }
 
 select {
+  @extend label;
   -webkit-appearance: none;
   appearance: none;
 }
@@ -394,6 +426,7 @@ select {
 }
 
 textarea {
+  font-family: monospace;
   height: auto;
   line-height: inherit;
   padding-bottom: 0.35rem;
@@ -413,5 +446,6 @@ textarea {
 
 [role='alert'] {
   background: $fill-alert;
+  color: $color-alert;
   padding: 1rem 1.5rem;
 }

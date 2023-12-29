@@ -22,7 +22,6 @@
 [role=link],
 a {
   color: #00f;
-  outline: 0;
 }
 [role=link]:focus,
 a:focus {
@@ -47,6 +46,25 @@ th {
   font-weight: bold;
 }
 
+i,
+dfn,
+em,
+var {
+  font-style: italic;
+}
+
+s,
+[role=deletion],
+del {
+  text-decoration: line-through;
+}
+
+u,
+[role=insertion],
+ins {
+  text-decoration: underline;
+}
+
 blockquote {
   font-size: 1.185rem;
 }
@@ -57,28 +75,23 @@ figcaption {
   text-align: center;
 }
 
-code,
-textarea {
+code {
+  background: #ccc;
+  color: #000;
   font-family: monospace;
 }
 
-[role=deletion],
-del,
-s {
-  text-decoration: line-through;
-}
-
-details summary,
-label {
+label,
+select,
+[role=button],
+[role=button]:any-link,
+button,
+input[type=button],
+input[type=reset],
+input[type=submit],
+details summary {
   cursor: pointer;
   user-select: none;
-}
-
-dfn,
-em,
-i,
-var {
-  font-style: italic;
 }
 
 dl,
@@ -96,6 +109,7 @@ figure {
   text-align: center;
 }
 figure img {
+  border: 1px solid;
   display: block;
 }
 
@@ -143,25 +157,35 @@ img {
   height: auto;
 }
 
-/* `<input id="r:0" type="radio"> <label for="r:0">Radio</label>` */
-input[id] + label[for] {
+input[id] + label[for],
+input[id] + select[for],
+input[id] + [for][role=button],
+input[id] + button[for],
+input[id] + input[for][type=button],
+input[id] + input[for][type=reset],
+input[id] + input[for][type=submit],
+details input[id] + summary[for] {
   display: inline-block;
   vertical-align: middle;
 }
 
-[role=insertion],
-ins {
-  text-decoration: underline;
-}
-
 kbd {
   background: #ccc;
+  border: 2px outset;
+  color: #000;
   display: inline-block;
   padding: 0 0.35rem;
 }
 
-/* `<label><input type="radio"> <span>Radio</span></label>` */
-label input + span {
+label input + span,
+select input + span,
+[role=button] input + span,
+[role=button]:any-link input + span,
+button input + span,
+input[type=button] input + span,
+input[type=reset] input + span,
+input[type=submit] input + span,
+details summary input + span {
   display: inline-block;
   vertical-align: middle;
 }
@@ -173,6 +197,7 @@ legend {
 [role=mark],
 mark {
   background: #ff0;
+  color: #000;
 }
 
 ol {
@@ -180,7 +205,6 @@ ol {
 }
 
 pre code {
-  background: #ccc;
   display: block;
   overflow: auto;
   padding: 0.75rem 1rem;
@@ -204,6 +228,14 @@ sub {
 
 sup {
   vertical-align: super;
+}
+
+svg {
+  display: inline-block;
+  fill: currentColor;
+  height: 1.5rem;
+  vertical-align: middle;
+  width: 1.5rem;
 }
 
 table {
@@ -266,11 +298,11 @@ output,
 select,
 textarea {
   accent-color: #00f;
-  border: 1px solid #000;
+  border: 2px solid #000;
   color: #000;
   display: inline-block;
   height: 2.25rem;
-  line-height: calc(2.25rem - 2px);
+  line-height: calc(2.25rem - 4px);
   /* Minus the `border-width` */
   outline: 0;
   padding: 0 0.5rem;
@@ -284,7 +316,6 @@ output:focus,
 select:focus,
 textarea:focus {
   border-color: #00f;
-  box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.25);
   color: #000;
 }
 
@@ -303,12 +334,10 @@ input[type=button],
 input[type=reset],
 input[type=submit] {
   background: #00f;
-  border-width: 0;
+  border-color: #000;
   color: #fff;
-  cursor: pointer;
-  line-height: 2.25rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
   text-align: center;
   width: auto;
 }
@@ -319,40 +348,8 @@ input[type=button]:focus,
 input[type=reset]:focus,
 input[type=submit]:focus {
   background: #f00;
+  border-color: #000;
   color: #fff;
-}
-
-input[type=color] {
-  height: 2.25rem;
-  padding: 0;
-  width: 2.25rem;
-}
-
-input[type=file] {
-  width: auto;
-}
-
-input[type=image] {
-  height: auto;
-  padding: 0;
-  width: auto;
-}
-
-input[type=checkbox],
-input[type=radio] {
-  height: 1rem;
-  padding: 0;
-  width: 1rem;
-}
-
-input[type=checkbox],
-input[type=color],
-input[type=file],
-input[type=image],
-input[type=radio],
-input[type=range],
-select {
-  cursor: pointer;
 }
 
 input[type=checkbox],
@@ -362,6 +359,32 @@ input[type=radio],
 input[type=range] {
   background: 0 0;
   border: 0;
+}
+input[type=checkbox],
+input[type=color],
+input[type=file],
+input[type=image],
+input[type=radio],
+input[type=range] {
+  cursor: pointer;
+}
+input[type=checkbox],
+input[type=color],
+input[type=radio] {
+  height: 1rem;
+  padding: 0;
+  width: 1rem;
+}
+input[type=color] {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+input[type=file],
+input[type=image] {
+  width: auto;
+}
+input[type=image] {
+  height: auto;
   padding: 0;
 }
 
@@ -383,6 +406,7 @@ select {
 }
 
 textarea {
+  font-family: monospace;
   height: auto;
   line-height: inherit;
   padding-bottom: 0.35rem;
@@ -402,5 +426,6 @@ textarea {
 
 [role=alert] {
   background: #ffa;
+  color: #000;
   padding: 1rem 1.5rem;
 }
