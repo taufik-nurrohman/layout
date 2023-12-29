@@ -188,14 +188,6 @@ img {
   height: auto;
 }
 
-// `<input id="radio" type="radio"> <label for="radio">Radio</label>`
-input[id] {
-  + label[for] {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
 [role='insertion'],
 ins {
   @extend u;
@@ -207,16 +199,6 @@ kbd {
   color: $color-kbd;
   display: inline-block;
   padding: 0 0.35rem;
-}
-
-// `<label><input type="radio"> <span>Radio</span></label>`
-label {
-  input {
-    + span {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
 }
 
 legend {
@@ -340,7 +322,7 @@ textarea {
   outline: 0;
   padding: 0 0.5rem;
   vertical-align: middle;
-  width: 12rem;
+  width: 18.5rem;
   &:focus {
     border-color: $stroke-input--focus;
     color: $color-input--focus;
@@ -380,7 +362,6 @@ input[type='submit'] {
 
 input {
   &[type='checkbox'],
-  &[type='file'],
   &[type='image'],
   &[type='radio'],
   &[type='range'] {
@@ -406,15 +387,60 @@ input {
     height: 2.25rem;
     width: 2.25rem;
   }
-  &[type='file'],
-  &[type='image'] {
-    width: auto;
+  &[type='file'] {
+    padding: 0;
+    &::file-selector-button {
+      background: $fill-button;
+      border: 0 solid $stroke-input;
+      border-inline-end-width: 2px;
+      color: $color-button;
+      font: inherit;
+      margin: 0;
+      margin-inline-end: 0.5rem;
+      padding: 0;
+      padding-left: 0.65rem;
+      padding-right: 0.65rem;
+      text-align: center;
+      width: auto;
+      &:focus {
+	border-color: $stroke-input--focus;
+	color: $color-button--focus;
+        background: $fill-button--focus;
+      }
+    }
+    &:focus {
+      &::file-selector-button {
+	border-color: $stroke-input--focus;
+	color: $color-button--focus;
+        background: $fill-button--focus;
+      }
+    }
   }
   &[type='image'] {
     height: auto;
     padding: 0;
+    width: auto;
   }
 }
+
+// `<input id="radio" type="radio"> <label for="radio">Radio</label>`
+input[id] {
+  + label[for] {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+// `<label><input type="radio"> <span>Radio</span></label>`
+label {
+  input {
+    + span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
 
 select {
   @extend label;

@@ -168,37 +168,12 @@ img {
   height: auto;
 }
 
-input[id] + label[for],
-input[id] + select[for],
-input[id] + [for][role=button],
-input[id] + button[for],
-input[id] + input[for][type=button],
-input[id] + input[for][type=reset],
-input[id] + input[for][type=submit],
-details input[id] + summary[for] {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 kbd {
   background: #ccc;
   border: 2px outset;
   color: #000;
   display: inline-block;
   padding: 0 0.35rem;
-}
-
-label input + span,
-select input + span,
-[role=button] input + span,
-[role=button]:any-link input + span,
-button input + span,
-input[type=button] input + span,
-input[type=reset] input + span,
-input[type=submit] input + span,
-details summary input + span {
-  display: inline-block;
-  vertical-align: middle;
 }
 
 legend {
@@ -318,7 +293,7 @@ textarea {
   outline: 0;
   padding: 0 0.5rem;
   vertical-align: middle;
-  width: 12rem;
+  width: 18.5rem;
 }
 [role=button]:focus,
 button:focus,
@@ -364,7 +339,6 @@ input[type=submit]:focus {
 }
 
 input[type=checkbox],
-input[type=file],
 input[type=image],
 input[type=radio],
 input[type=range] {
@@ -390,13 +364,62 @@ input[type=color] {
   height: 2.25rem;
   width: 2.25rem;
 }
-input[type=file],
-input[type=image] {
+input[type=file] {
+  padding: 0;
+}
+input[type=file]::file-selector-button {
+  background: #00f;
+  border: 0 solid #000;
+  border-inline-end-width: 2px;
+  color: #fff;
+  font: inherit;
+  margin: 0;
+  margin-inline-end: 0.5rem;
+  padding: 0;
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+  text-align: center;
   width: auto;
+}
+input[type=file]::file-selector-button:focus {
+  border-color: #00f;
+  color: #fff;
+  background: #f00;
+}
+input[type=file]:focus::file-selector-button {
+  border-color: #00f;
+  color: #fff;
+  background: #f00;
 }
 input[type=image] {
   height: auto;
   padding: 0;
+  width: auto;
+}
+
+input[id] + label[for],
+input[id] + select[for],
+details input[id] + summary[for],
+input[id] + [for][role=button],
+input[id] + button[for],
+input[id] + input[for][type=button],
+input[id] + input[for][type=reset],
+input[id] + input[for][type=submit] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+label input + span,
+select input + span,
+details summary input + span,
+[role=button] input + span,
+[role=button]:any-link input + span,
+button input + span,
+input[type=button] input + span,
+input[type=reset] input + span,
+input[type=submit] input + span {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 select {
