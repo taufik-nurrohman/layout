@@ -309,6 +309,7 @@ input[type=submit] {
   line-height: 2.25rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  text-align: center;
   width: auto;
 }
 [role=button]:focus,
