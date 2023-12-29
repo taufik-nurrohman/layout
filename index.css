@@ -20,9 +20,13 @@
 }
 
 [role=link],
-a,
-details summary {
-  color: #006;
+a {
+  color: #00f;
+  outline: 0;
+}
+[role=link]:focus,
+a:focus {
+  color: #f00;
 }
 
 abbr {
@@ -176,8 +180,7 @@ ol {
 }
 
 pre code {
-  background: #000;
-  color: #fff;
+  background: #ccc;
   display: block;
   overflow: auto;
   padding: 0.75rem 1rem;
@@ -262,16 +265,27 @@ input,
 output,
 select,
 textarea {
-  accent-color: #006;
-  border: 1px solid;
-  color: inherit;
+  accent-color: #00f;
+  border: 1px solid #000;
+  color: #000;
   display: inline-block;
   height: 2.25rem;
   line-height: calc(2.25rem - 2px);
   /* Minus the `border-width` */
+  outline: 0;
   padding: 0 0.5rem;
   vertical-align: middle;
   width: 12rem;
+}
+[role=button]:focus,
+button:focus,
+input:focus,
+output:focus,
+select:focus,
+textarea:focus {
+  border-color: #00f;
+  box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.25);
+  color: #000;
 }
 
 button::-moz-focus-inner,
@@ -288,7 +302,7 @@ button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-  background: #006;
+  background: #00f;
   border-width: 0;
   color: #fff;
   cursor: pointer;
@@ -297,22 +311,36 @@ input[type=submit] {
   padding-right: 0.75rem;
   width: auto;
 }
+[role=button]:focus,
+[role=button]:any-link:focus,
+button:focus,
+input[type=button]:focus,
+input[type=reset]:focus,
+input[type=submit]:focus {
+  background: #f00;
+  color: #fff;
+}
 
-input[type=color],
-input[type=image] {
+input[type=color] {
   height: 2.25rem;
   padding: 0;
   width: 2.25rem;
 }
 
+input[type=file] {
+  width: auto;
+}
+
 input[type=image] {
   height: auto;
+  padding: 0;
   width: auto;
 }
 
 input[type=checkbox],
 input[type=radio] {
   height: 1rem;
+  padding: 0;
   width: 1rem;
 }
 
@@ -366,8 +394,12 @@ textarea {
   cursor: not-allowed;
 }
 
+[aria-current],
+[aria-disabled] {
+  color: inherit;
+}
+
 [role=alert] {
   background: #ffa;
-  border: 1px dashed;
   padding: 1rem 1.5rem;
 }
