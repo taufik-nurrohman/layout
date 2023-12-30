@@ -110,11 +110,6 @@ details {
   }
 }
 
-label {
-  cursor: pointer;
-  user-select: none;
-}
-
 dfn,
 em,
 var {
@@ -203,6 +198,11 @@ kbd {
   padding: 0 0.35rem;
 }
 
+label {
+  cursor: pointer;
+  user-select: none;
+}
+
 legend {
   padding: 0 0.5rem;
 }
@@ -211,6 +211,20 @@ legend {
 mark {
   background: $fill-mark;
   color: $color-mark;
+}
+
+nav {
+  a {
+    display: block;
+  }
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 ol {

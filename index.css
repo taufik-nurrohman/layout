@@ -83,19 +83,6 @@ code {
   font-family: monospace;
 }
 
-label,
-select,
-[role=button],
-[role=button]:any-link,
-button,
-input[type=button],
-input[type=reset],
-input[type=submit],
-details summary {
-  cursor: pointer;
-  user-select: none;
-}
-
 dl,
 ol,
 ul {
@@ -176,6 +163,19 @@ kbd {
   padding: 0 0.35rem;
 }
 
+label,
+select,
+[role=button],
+[role=button]:any-link,
+button,
+input[type=button],
+input[type=reset],
+input[type=submit],
+details summary {
+  cursor: pointer;
+  user-select: none;
+}
+
 legend {
   padding: 0 0.5rem;
 }
@@ -184,6 +184,20 @@ legend {
 mark {
   background: #ff0;
   color: #000;
+}
+
+nav a,
+nav details summary,
+details nav summary {
+  display: block;
+}
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 ol {
