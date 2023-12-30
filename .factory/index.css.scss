@@ -13,8 +13,8 @@ $color-quote: #008;
 $color-title: #00a;
 $color: #000;
 $fill-alert: #ffa;
-$fill-button--focus: #00f;
-$fill-button: #000;
+$fill-button--focus: #f00;
+$fill-button: #00f;
 $fill-code: #ccc;
 $fill-kbd: #ccc;
 $fill-mark: #ff0;
@@ -50,7 +50,6 @@ $stroke: #00f;
   text-align: left;
 }
 
-[role='link'],
 a {
   color: $color-link;
   &:focus {
@@ -83,12 +82,6 @@ u {
 }
 
 dt,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 legend,
 strong,
 th {
@@ -129,7 +122,6 @@ code {
   font-family: 'Courier New', Courier, monospace;
 }
 
-[role='deletion'],
 del {
   @extend s;
 }
@@ -215,7 +207,6 @@ img {
   height: auto;
 }
 
-[role='insertion'],
 ins {
   @extend u;
 }
@@ -237,7 +228,6 @@ legend {
   padding: 0 0.5rem;
 }
 
-[role='mark'],
 mark {
   background: $fill-mark;
   color: $color-mark;
@@ -370,13 +360,13 @@ legend {
   }
 }
 
-[role='button'],
 button,
 input,
 output,
 select,
 textarea {
   accent-color: $fill-button;
+  border-radius: 0.25rem;
   border: 2px solid $stroke-input;
   color: $color-input;
   display: inline-block;
@@ -403,8 +393,6 @@ input {
   }
 }
 
-[role='button'],
-[role='button']:any-link,
 button,
 input[type='button'],
 input[type='reset'],
@@ -436,7 +424,7 @@ input[type='submit'] {
     color: $color-link;
     &:focus {
       background: 0 0;
-      border-color: $color-link--focus;
+      border-color: $color-link;
       color: $color-link--focus;
     }
   }
@@ -471,7 +459,7 @@ input {
   }
   &[type='checkbox'] {
     &::after {
-      border: 0 solid $stroke-input;
+      border: 0 solid $fill-button;
       border-width: 0 3px 3px 0;
       bottom: 4px;
       content: "";
@@ -483,14 +471,14 @@ input {
     }
     &:focus {
       &::after {
-        border-color: $stroke-input--focus;
+        border-color: $fill-button--focus;
       }
     }
   }
   &[type='radio'] {
     border-radius: 100%;
     &::after {
-      background: $stroke-input;
+      background: $fill-button;
       border-radius: 100%;
       bottom: 4px;
       content: "";
@@ -501,7 +489,7 @@ input {
     }
     &:focus {
       &::after {
-        background: $stroke-input--focus;
+        background: $fill-button--focus;
       }
     }
   }
@@ -534,7 +522,6 @@ input {
       width: auto;
       &:focus {
         background: $fill-button--focus;
-        border-color: $stroke-input--focus;
         color: $color-button--focus;
       }
     }
@@ -564,7 +551,7 @@ input {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       background: $fill-button;
-      border-radius: 0;
+      border-radius: 0.25rem;
       border: 2px solid $stroke-button;
       height: 1.5rem;
       width: 0.5rem;
@@ -576,7 +563,7 @@ input {
     }
     &::-moz-range-thumb {
       background: $fill-button;
-      border-radius: 0;
+      border-radius: 0.25rem;
       border: 2px solid $stroke-button;
       height: 1.5rem;
       width: 0.5rem;
@@ -675,6 +662,14 @@ textarea {
   padding: 0.75rem 1rem;
 }
 
+[role='button'] {
+  @extend button;
+}
+
+[role='deletion'] {
+  @extend del;
+}
+
 [role='group'] {
   display: flex;
   flex-wrap: wrap;
@@ -683,6 +678,18 @@ textarea {
   &[aria-orientation='vertical'] {
     flex-direction: column;
   }
+}
+
+[role='insertion'] {
+  @extend ins;
+}
+
+[role='link'] {
+  @extend a;
+}
+
+[role='mark'] {
+  @extend mark;
 }
 
 [role='note'] {
