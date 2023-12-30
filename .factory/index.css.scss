@@ -124,7 +124,9 @@ var {
 dl,
 ol,
 ul {
-  margin-left: 1.5rem;
+  margin: {
+    left: 1.5rem;
+  }
 }
 
 fieldset {
@@ -152,24 +154,24 @@ h6 {
   line-height: 1.25;
 }
 
-/* <https://www.modularscale.com/?10,60&px&1.5> */
+/* <https://www.modularscale.com/?16&px&1.125> */
 h1 {
-  font-size: 3.375rem;
+  font-size: 2.027rem;
 }
 h2 {
-  font-size: 2.667rem;
+  font-size: 1.802rem;
 }
 h3 {
-  font-size: 2.25rem;
+  font-size: 1.602rem;
 }
 h4 {
-  font-size: 1.778rem;
+  font-size: 1.424rem;
 }
 h5 {
-  font-size: 1.5rem;
+  font-size: 1.266rem;
 }
 h6 {
-  font-size: 1.185rem;
+  font-size: 1.125rem;
 }
 
 hr {
@@ -227,7 +229,7 @@ pre {
 small,
 sub,
 sup {
-  font-size: 0.79rem;
+  font-size: 0.889rem;
 }
 
 sub, sup {
@@ -278,12 +280,17 @@ video {
 }
 
 * {
+  + address,
+  + article,
+  + aside,
   + blockquote,
   + details,
+  + div,
   + dl,
   + dt,
   + fieldset,
   + figure,
+  + footer,
   + form,
   + h1,
   + h2,
@@ -291,19 +298,27 @@ video {
   + h4,
   + h5,
   + h6,
+  + header,
   + hr,
+  + main,
+  + nav,
   + ol,
   + p,
   + pre,
+  + section,
   + table,
   + ul {
-    margin-top: 1.5rem;
+    margin: {
+      top: 1.5rem;
+    }
   }
 }
 
 legend {
   + * {
-    margin-top: 0;
+    margin: {
+      top: 0;
+    }
   }
 }
 
@@ -321,6 +336,7 @@ textarea {
   line-height: calc(2.25rem - 4px); /* Minus the `border-width` */
   outline: 0;
   padding: 0 0.5rem;
+  position: relative;
   vertical-align: middle;
   width: 18.5rem;
   &:focus {
@@ -349,8 +365,10 @@ input[type='submit'] {
   background: $fill-button;
   border-color: $stroke-button;
   color: $color-button;
-  padding-left: 0.65rem;
-  padding-right: 0.65rem;
+  padding: {
+    left: 0.65rem;
+    right: 0.65rem;
+  }
   text-align: center;
   width: auto;
   &:focus {
@@ -361,9 +379,7 @@ input[type='submit'] {
 }
 
 input {
-  &[type='checkbox'],
   &[type='image'],
-  &[type='radio'],
   &[type='range'] {
     background: 0 0;
     border: 0;
@@ -377,42 +393,92 @@ input {
     cursor: pointer;
   }
   &[type='checkbox'],
-  &[type='color'],
   &[type='radio'] {
-    height: 1rem;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1.5rem;
     padding: 0;
-    width: 1rem;
+    width: 1.5rem;
+    &:not(:checked) {
+      &::after {
+        visibility: hidden;
+      }
+    }
+  }
+  &[type='checkbox'] {
+    &::after {
+      border: 0 solid $stroke-input;
+      border-width: 0 3px 3px 0;
+      bottom: 4px;
+      content: "";
+      left: 8px;
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      transform: rotate(45deg) translate(-2px, 1px);
+    }
+    &:focus {
+      &::after {
+        border-color: $stroke-input--focus;
+      }
+    }
+  }
+  &[type='radio'] {
+    border-radius: 100%;
+    &::after {
+      background: $stroke-input;
+      border-radius: 100%;
+      bottom: 4px;
+      content: "";
+      left: 4px;
+      position: absolute;
+      right: 4px;
+      top: 4px;
+    }
+    &:focus {
+      &::after {
+        background: $stroke-input--focus;
+      }
+    }
   }
   &[type='color'] {
     height: 2.25rem;
+    padding: 4px;
     width: 2.25rem;
   }
   &[type='file'] {
-    padding: 0;
+    padding: {
+      inline-start: 0;
+    }
     &::file-selector-button {
       background: $fill-button;
       border: 0 solid $stroke-input;
       border-inline-end-width: 2px;
+      box-sizing: border-box;
       color: $color-button;
       font: inherit;
       margin: 0;
-      margin-inline-end: 0.5rem;
+      margin: {
+        inline-end: 0.5rem;
+      }
       padding: 0;
-      padding-left: 0.65rem;
-      padding-right: 0.65rem;
+      padding: {
+        left: 0.65rem;
+        right: 0.65rem;
+      }
       text-align: center;
       width: auto;
       &:focus {
-	border-color: $stroke-input--focus;
-	color: $color-button--focus;
         background: $fill-button--focus;
+        border-color: $stroke-input--focus;
+        color: $color-button--focus;
       }
     }
     &:focus {
       &::file-selector-button {
-	border-color: $stroke-input--focus;
-	color: $color-button--focus;
         background: $fill-button--focus;
+        border-color: $stroke-input--focus;
+        color: $color-button--focus;
       }
     }
   }
@@ -420,6 +486,53 @@ input {
     height: auto;
     padding: 0;
     width: auto;
+  }
+  &[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    &::-webkit-slider-runnable-track {
+      -webkit-appearance: none;
+      background: $stroke-input;
+      border: 0;
+      height: 2px;
+      overflow: visible;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background: $fill-button;
+      border-radius: 0;
+      border: 2px solid $stroke-button;
+      height: 1.5rem;
+      width: 0.5rem;
+    }
+    &::-moz-range-track {
+      background: $stroke-input;
+      border: 0;
+      height: 2px;
+    }
+    &::-moz-range-thumb {
+      background: $fill-button;
+      border-radius: 0;
+      border: 2px solid $stroke-button;
+      height: 1.5rem;
+      width: 0.5rem;
+    }
+    &:focus {
+      &::-webkit-slider-runnable-track {
+        background: $stroke-input--focus;
+      }
+      &::-webkit-slider-thumb {
+        background: $fill-button--focus;
+        border-color: $stroke-button--focus;
+      }
+      &::-moz-range-track {
+        background: $stroke-input--focus;
+      }
+      &::-moz-range-thumb {
+        background: $fill-button--focus;
+        border-color: $stroke-button--focus;
+      }
+    }
   }
 }
 
@@ -441,11 +554,18 @@ label {
   }
 }
 
-
 select {
   @extend label;
   -webkit-appearance: none;
   appearance: none;
+  &[multiple] {
+    height: auto;
+    line-height: 1;
+    padding: {
+      bottom: 0.45rem;
+      top: 0.45rem;
+    }
+  }
 }
 
 ::-moz-color-swatch {
@@ -464,8 +584,11 @@ textarea {
   font-family: monospace;
   height: auto;
   line-height: inherit;
-  padding-bottom: 0.35rem;
-  padding-top: 0.35rem;
+  min-height: 9.25rem;
+  padding: {
+    bottom: 0.25rem;
+    top: 0.25rem;
+  }
   resize: vertical;
 }
 
@@ -483,4 +606,13 @@ textarea {
   background: $fill-alert;
   color: $color-alert;
   padding: 1rem 1.5rem;
+}
+
+[role='group'] {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  &[aria-orientation='vertical'] {
+    flex-direction: column;
+  }
 }

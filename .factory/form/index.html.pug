@@ -1,0 +1,71 @@
+html(dir='ltr')
+  head
+    meta(charset='utf-8')
+    meta(content='width=device-width' name='viewport')
+    title Form
+    link(href='../index.min.css' rel='stylesheet')
+    style
+      | @media (min-width: 45rem) {
+      |   main {
+      |     margin: 3rem auto;
+      |     max-width: 45rem;
+      |   }
+      | }
+  body(spellcheck='false')
+    main
+      h1 Form
+      form
+        fieldset
+          legend Test Legend
+          p text #[button Button] #[input(type='button' value='Input Button')] #[span(role='button') Span] #[a(href='#' role='button') Anchor] text
+          p text #[input(type='text')] text
+          p
+            ='text '
+            select
+              option Red
+              option Green
+              option Blue
+            =' text'
+          p
+            ='text '
+            select(multiple)
+              option Red
+              option Green
+              option Blue
+            =' text'
+          p text #[input(type='color')] text
+          p
+            ='text '
+            label
+              input(type='checkbox')
+              =' '
+              span Check Box
+            =' '
+            label
+              input(type='radio')
+              =' '
+              span Radio
+            =' text'
+          p text #[input(type='range')] text
+          p
+            ='text '
+            textarea
+            =' text'
+          p
+            ='text '
+            input(type='file')
+            =' text'
+          p: textarea(placeholder='Placeholder goes here…' style='display: block; width: 100%;') Lorem ipsum dolor sit amet.
+      form
+        fieldset
+          legend Test Legend
+          p text #[button(disabled) Button] text
+          p text #[input(disabled type='text')] text
+          p
+            ='text '
+            select(disabled)
+              option Red
+              option Green
+              option Blue
+            =' text'
+          p text #[textarea(disabled)] text

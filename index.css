@@ -127,29 +127,29 @@ h6 {
   line-height: 1.25;
 }
 
-/* <https://www.modularscale.com/?10,60&px&1.5> */
+/* <https://www.modularscale.com/?16&px&1.125> */
 h1 {
-  font-size: 3.375rem;
+  font-size: 2.027rem;
 }
 
 h2 {
-  font-size: 2.667rem;
+  font-size: 1.802rem;
 }
 
 h3 {
-  font-size: 2.25rem;
+  font-size: 1.602rem;
 }
 
 h4 {
-  font-size: 1.778rem;
+  font-size: 1.424rem;
 }
 
 h5 {
-  font-size: 1.5rem;
+  font-size: 1.266rem;
 }
 
 h6 {
-  font-size: 1.185rem;
+  font-size: 1.125rem;
 }
 
 hr {
@@ -200,7 +200,7 @@ pre code {
 small,
 sub,
 sup {
-  font-size: 0.79rem;
+  font-size: 0.889rem;
 }
 
 sub,
@@ -251,12 +251,17 @@ video {
   width: 100%;
 }
 
+* + address,
+* + article,
+* + aside,
 * + blockquote,
 * + details,
+* + div,
 * + dl,
 * + dt,
 * + fieldset,
 * + figure,
+* + footer,
 * + form,
 * + h1,
 * + h2,
@@ -264,10 +269,14 @@ video {
 * + h4,
 * + h5,
 * + h6,
+* + header,
 * + hr,
+* + main,
+* + nav,
 * + ol,
 * + p,
 * + pre,
+* + section,
 * + table,
 * + ul {
   margin-top: 1.5rem;
@@ -292,6 +301,7 @@ textarea {
   /* Minus the `border-width` */
   outline: 0;
   padding: 0 0.5rem;
+  position: relative;
   vertical-align: middle;
   width: 18.5rem;
 }
@@ -338,9 +348,7 @@ input[type=submit]:focus {
   color: #fff;
 }
 
-input[type=checkbox],
 input[type=image],
-input[type=radio],
 input[type=range] {
   background: 0 0;
   border: 0;
@@ -354,23 +362,60 @@ input[type=range] {
   cursor: pointer;
 }
 input[type=checkbox],
-input[type=color],
 input[type=radio] {
-  height: 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.5rem;
   padding: 0;
-  width: 1rem;
+  width: 1.5rem;
+}
+input[type=checkbox]:not(:checked)::after,
+input[type=radio]:not(:checked)::after {
+  visibility: hidden;
+}
+input[type=checkbox]::after {
+  border: 0 solid #000;
+  border-width: 0 3px 3px 0;
+  bottom: 4px;
+  content: "";
+  left: 8px;
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  transform: rotate(45deg) translate(-2px, 1px);
+}
+input[type=checkbox]:focus::after {
+  border-color: #00f;
+}
+input[type=radio] {
+  border-radius: 100%;
+}
+input[type=radio]::after {
+  background: #000;
+  border-radius: 100%;
+  bottom: 4px;
+  content: "";
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+input[type=radio]:focus::after {
+  background: #00f;
 }
 input[type=color] {
   height: 2.25rem;
+  padding: 4px;
   width: 2.25rem;
 }
 input[type=file] {
-  padding: 0;
+  padding-inline-start: 0;
 }
 input[type=file]::file-selector-button {
   background: #00f;
   border: 0 solid #000;
   border-inline-end-width: 2px;
+  box-sizing: border-box;
   color: #fff;
   font: inherit;
   margin: 0;
@@ -382,19 +427,64 @@ input[type=file]::file-selector-button {
   width: auto;
 }
 input[type=file]::file-selector-button:focus {
+  background: #f00;
   border-color: #00f;
   color: #fff;
-  background: #f00;
 }
 input[type=file]:focus::file-selector-button {
+  background: #f00;
   border-color: #00f;
   color: #fff;
-  background: #f00;
 }
 input[type=image] {
   height: auto;
   padding: 0;
   width: auto;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: #000;
+  border: 0;
+  height: 2px;
+  overflow: visible;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #00f;
+  border-radius: 0;
+  border: 2px solid #000;
+  height: 1.5rem;
+  width: 0.5rem;
+}
+input[type=range]::-moz-range-track {
+  background: #000;
+  border: 0;
+  height: 2px;
+}
+input[type=range]::-moz-range-thumb {
+  background: #00f;
+  border-radius: 0;
+  border: 2px solid #000;
+  height: 1.5rem;
+  width: 0.5rem;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #00f;
+}
+input[type=range]:focus::-webkit-slider-thumb {
+  background: #f00;
+  border-color: #000;
+}
+input[type=range]:focus::-moz-range-track {
+  background: #00f;
+}
+input[type=range]:focus::-moz-range-thumb {
+  background: #f00;
+  border-color: #000;
 }
 
 input[id] + label[for],
@@ -426,6 +516,12 @@ select {
   -webkit-appearance: none;
   appearance: none;
 }
+select[multiple] {
+  height: auto;
+  line-height: 1;
+  padding-bottom: 0.45rem;
+  padding-top: 0.45rem;
+}
 
 ::-moz-color-swatch {
   border: 0;
@@ -443,8 +539,9 @@ textarea {
   font-family: monospace;
   height: auto;
   line-height: inherit;
-  padding-bottom: 0.35rem;
-  padding-top: 0.35rem;
+  min-height: 9.25rem;
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
   resize: vertical;
 }
 
@@ -462,4 +559,13 @@ textarea {
   background: #ffa;
   color: #000;
   padding: 1rem 1.5rem;
+}
+
+[role=group] {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+[role=group][aria-orientation=vertical] {
+  flex-direction: column;
 }
