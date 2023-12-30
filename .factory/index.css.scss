@@ -25,6 +25,7 @@ $stroke-button: #000;
 $stroke-input--focus: #00f;
 $stroke-input: #000;
 $stroke-quote: #def;
+$stroke: #00f;
 
 * {
   background: 0 0;
@@ -41,8 +42,10 @@ $stroke-quote: #def;
 
 :root {
   background: $fill;
+  border: 0 solid $stroke;
+  border-width: 5px 0 0;
   color: $color;
-  font: normal normal 16px/1.5 sans-serif;
+  font: normal normal 16px/1.5 Verdana, Geneva, sans-serif;
   padding: 1.5rem;
   text-align: left;
 }
@@ -123,7 +126,7 @@ figcaption {
 code {
   background: $fill-code;
   color: $color-code;
-  font-family: monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 [role='deletion'],
