@@ -7,6 +7,7 @@ html(dir='ltr')
     style
       | :root {
       |   border-top: 5px solid #00f;
+      |   font-family: Verdana, Geneva, sans-serif;
       | }
       |
       | @media (min-width: 45rem) {
@@ -26,11 +27,13 @@ html(dir='ltr')
         ul
           li: a(href='..') Home
           li: a(aria-current='page' href='') Form
+          li: a(href='../nav') Navigation
       h1 Form
       form
         fieldset
           legend Test Legend
           p text #[button Button] #[input(type='button' value='Input Button')] #[span(role='button') Span] #[a(href='#' role='button') Anchor] text
+          p text #[button(role='link') Button] #[input(role='link' type='button' value='Input Button')] text
           p text #[input(type='text')] text
           p
             ='text '

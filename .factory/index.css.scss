@@ -8,18 +8,23 @@ $color-kbd: #000;
 $color-link--focus: #f00;
 $color-link: #00f;
 $color-mark: #000;
+$color-note: #000;
+$color-quote: #008;
+$color-title: #00a;
 $color: #000;
 $fill-alert: #ffa;
-$fill-button--focus: #f00;
-$fill-button: #00f;
+$fill-button--focus: #00f;
+$fill-button: #000;
 $fill-code: #ccc;
 $fill-kbd: #ccc;
 $fill-mark: #ff0;
+$fill-note: #def;
 $fill: #fff;
 $stroke-button--focus: #000;
 $stroke-button: #000;
 $stroke-input--focus: #00f;
 $stroke-input: #000;
+$stroke-quote: #def;
 
 * {
   background: 0 0;
@@ -62,6 +67,10 @@ i {
   font-style: italic;
 }
 
+q {
+  color: $color-quote;
+}
+
 s {
   text-decoration: line-through;
 }
@@ -83,8 +92,26 @@ th {
   @extend b;
 }
 
+dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+legend {
+  color: $color-title;
+}
+
 blockquote {
+  @extend q;
+  border: {
+    inline-start: 5px solid $stroke-quote;
+  }
   font-size: 1.185rem;
+  padding: {
+    inline-start: 1.5rem;
+  }
 }
 
 caption,
@@ -214,13 +241,17 @@ mark {
 }
 
 nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   a {
     display: block;
+    padding: 0 0.5rem;
   }
   > ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -389,6 +420,22 @@ input[type='submit'] {
     background: $fill-button--focus;
     border-color: $stroke-button--focus;
     color: $color-button--focus;
+  }
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  &[role='link'] {
+    background: 0 0;
+    border-color: transparent;
+    color: $color-link;
+    &:focus {
+      background: 0 0;
+      border-color: $color-link--focus;
+      color: $color-link--focus;
+    }
   }
 }
 
@@ -614,12 +661,15 @@ textarea {
 [aria-current],
 [aria-disabled] {
   color: inherit;
+  &:focus {
+    color: inherit;
+  }
 }
 
 [role='alert'] {
   background: $fill-alert;
   color: $color-alert;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1rem;
 }
 
 [role='group'] {
@@ -630,4 +680,10 @@ textarea {
   &[aria-orientation='vertical'] {
     flex-direction: column;
   }
+}
+
+[role='note'] {
+  @extend [role='alert'];
+  background: $fill-note;
+  color: $color-note;
 }

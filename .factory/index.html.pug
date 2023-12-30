@@ -7,6 +7,7 @@ html(dir='ltr')
     style
       | :root {
       |   border-top: 5px solid #00f;
+      |   font-family: Verdana, Geneva, sans-serif;
       | }
       |
       | @media (min-width: 45rem) {
@@ -27,6 +28,7 @@ html(dir='ltr')
         ul
           li: a(aria-current='page' href='') Home
           li: a(href='form') Form
+          li: a(href='nav') Navigation
       h1 Home
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor justo luctus, varius lorem sed, molestie massa. Ut et justo finibus, pharetra magna fermentum, rhoncus mauris. In et nulla eu nisl lobortis commodo in sed justo. Quisque iaculis odio a nulla faucibus dictum nec ac risus. Aliquam finibus, ex sit amet laoreet gravida, lacus nisl tincidunt turpis, a vestibulum dui purus a dolor. Aliquam eu urna at felis feugiat faucibus ut non mi. Quisque cursus nisi vitae maximus auctor.
       blockquote
@@ -42,7 +44,7 @@ html(dir='ltr')
       p: small Small
       p Suspendisse in sagittis purus, at lobortis tortor. Donec faucibus, urna eget volutpat mollis, ligula erat tincidunt neque, sit amet pharetra libero metus at mauris. Aliquam metus neque, pellentesque id euismod vel, fermentum et nisl. Sed vulputate ipsum dapibus augue sollicitudin cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus bibendum pulvinar ipsum ut condimentum. Ut vitae rutrum leo.
       hr
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor justo luctus, varius lorem sed, molestie massa. Ut et justo finibus, pharetra magna fermentum, rhoncus mauris. In et nulla eu nisl lobortis commodo in sed justo. Quisque iaculis odio a nulla faucibus dictum nec ac risus. Aliquam finibus, ex sit amet laoreet gravida, lacus nisl tincidunt turpis, a vestibulum dui purus a dolor. Aliquam eu urna at felis feugiat faucibus ut non mi. Quisque cursus nisi vitae maximus auctor.
+      p(role='note') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor justo luctus, varius lorem sed, molestie massa. Ut et justo finibus, pharetra magna fermentum, rhoncus mauris. In et nulla eu nisl lobortis commodo in sed justo. Quisque iaculis odio a nulla faucibus dictum nec ac risus. Aliquam finibus, ex sit amet laoreet gravida, lacus nisl tincidunt turpis, a vestibulum dui purus a dolor. Aliquam eu urna at felis feugiat faucibus ut non mi. Quisque cursus nisi vitae maximus auctor.
       p Lorem #[strong bold] ipsum dolor #[em italic] sit amet, #[small small] consectetuer #[code code] adipiscing elit, sed diam #[abbr(title='Yo!') abbr] nonummy #[a(href='#') link] nibh euismod #[mark mark] tincidunt ut laoreet #[kbd kbd] dolore magna aliquam erat volutpat. Ut wisi #[del del] enim #[ins ins] ad minim veniam, quis nostrud H#[sub 2]O exerci tation 10#[sup 2] ullamcorper suscipit #[dfn dfn] lobortis nisl ut #[a(href='#') <svg viewBox="0 0 24 24"><path d="M21.79 13L16 16l1 2l-4-.75V21h-2v-3.75L7 18l1-2l-5.79-3l1-1.73L1.61 8l3.6-.23l1-1.77l3.42 3.9L8 5h2l2-3l2 3h2l-1.63 4.9L17.79 6l1 1.73l3.6.23l-1.6 3.23Z"></path></svg> link] aliquip ex ea commodo <svg viewBox="0 0 24 24"><path d="M21.79 13L16 16l1 2l-4-.75V21h-2v-3.75L7 18l1-2l-5.79-3l1-1.73L1.61 8l3.6-.23l1-1.77l3.42 3.9L8 5h2l2-3l2 3h2l-1.63 4.9L17.79 6l1 1.73l3.6.23l-1.6 3.23Z"></path></svg> consequat.
       pre: code
         | function foo(bar = true) {
