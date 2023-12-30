@@ -5,6 +5,10 @@ html(dir='ltr')
     title Form
     link(href='../index.min.css' rel='stylesheet')
     style
+      | :root {
+      |   border-top: 5px solid #00f;
+      | }
+      |
       | @media (min-width: 45rem) {
       |   :root {
       |     padding-bottom: 3rem;
@@ -78,3 +82,9 @@ html(dir='ltr')
               option Blue
             =' text'
           p text #[textarea(disabled)] text
+        p(role='group')
+          button(type='submit') Action 1
+          =' '
+          button(type='submit') Action 2
+          =' '
+          button(type='submit') Action 3
