@@ -38,6 +38,12 @@ abbr {
 
 b,
 dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 legend,
 strong,
 th {
@@ -92,9 +98,11 @@ figcaption {
 }
 
 code {
-  background: #ccc;
-  color: #eef;
+  background: #eef;
+  color: #000;
+  display: inline-block;
   font-family: "Courier New", Courier, monospace;
+  padding: 0 0.35em;
 }
 
 dl,
@@ -117,15 +125,6 @@ figure img,
 figure video {
   border: 1px solid;
   display: block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.25;
 }
 
 /* <https://www.modularscale.com/?16&px&1.25> */
@@ -155,7 +154,7 @@ h6 {
 
 hr {
   border: 0;
-  border-top: 1px solid;
+  border-top: 2px dashed #def;
 }
 
 iframe {
@@ -272,6 +271,9 @@ table td {
   padding: 0.5rem 0.65rem;
   vertical-align: top;
 }
+table th {
+  background: #def;
+}
 
 ul {
   list-style: disc;
@@ -327,7 +329,6 @@ output,
 select,
 textarea {
   accent-color: #000;
-  border-radius: 0.25rem;
   border: 2px solid #000;
   color: #000;
   display: inline-block;
@@ -509,7 +510,7 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background: #000;
-  border-radius: 0.25rem;
+  border-radius: 0;
   border: 2px solid #000;
   height: calc(1.5rem + 2px);
   margin-top: -0.75rem;
@@ -522,7 +523,7 @@ input[type=range]::-moz-range-track {
 }
 input[type=range]::-moz-range-thumb {
   background: #000;
-  border-radius: 0.25rem;
+  border-radius: 0;
   border: 2px solid #000;
   height: calc(1.5rem + 2px);
   margin-top: -0.75rem;

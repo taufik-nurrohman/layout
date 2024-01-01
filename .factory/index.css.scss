@@ -1,7 +1,7 @@
 $color-alert: #000 !default;
 $color-button--focus: #fff !default;
 $color-button: #fff !default;
-$color-code: #eef !default;
+$color-code: #000 !default;
 $color-input--focus: #000 !default;
 $color-input: #000 !default;
 $color-kbd: #000 !default;
@@ -15,13 +15,15 @@ $color: #000 !default;
 $fill-alert: #ffa !default;
 $fill-button--focus: #00f !default;
 $fill-button: #000 !default;
-$fill-code: #ccc !default;
+$fill-code: #eef !default;
 $fill-kbd: #ccc !default;
 $fill-mark: #ff0 !default;
 $fill-note: #def !default;
+$fill-th: #def !default;
 $fill: #fff !default;
 $stroke-button--focus: #000 !default;
 $stroke-button: #000 !default;
+$stroke-hr: #def !default;
 $stroke-input--focus: #00f !default;
 $stroke-input: #000 !default;
 $stroke-quote: #def !default;
@@ -82,6 +84,12 @@ u {
 }
 
 dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 legend,
 strong,
 th {
@@ -119,7 +127,9 @@ figcaption {
 code {
   background: $fill-code;
   color: $color-code;
+  display: inline-block;
   font-family: 'Courier New', Courier, monospace;
+  padding: 0 0.35em;
 }
 
 del {
@@ -162,15 +172,6 @@ figure {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.25;
-}
-
 /* <https://www.modularscale.com/?16&px&1.25> */
 h1 {
   font-size: 3.815em;
@@ -193,7 +194,7 @@ h6 {
 
 hr {
   border: 0;
-  border-top: 1px solid;
+  border-top: 2px dashed $stroke-hr;
 }
 
 iframe {
@@ -303,6 +304,9 @@ table {
     padding: 0.5rem 0.65rem;
     vertical-align: top;
   }
+  th {
+    background: $fill-th;
+  }
 }
 
 ul {
@@ -366,7 +370,6 @@ output,
 select,
 textarea {
   accent-color: $fill-button;
-  border-radius: 0.25rem;
   border: 2px solid $stroke-input;
   color: $color-input;
   display: inline-block;
@@ -555,7 +558,7 @@ input {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       background: $fill-button;
-      border-radius: 0.25rem;
+      border-radius: 0;
       border: 2px solid $stroke-button;
       height: calc(1.5rem + 2px);
       margin-top: -0.75rem;
@@ -568,7 +571,7 @@ input {
     }
     &::-moz-range-thumb {
       background: $fill-button;
-      border-radius: 0.25rem;
+      border-radius: 0;
       border: 2px solid $stroke-button;
       height: calc(1.5rem + 2px);
       margin-top: -0.75rem;
