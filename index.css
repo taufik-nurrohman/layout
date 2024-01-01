@@ -93,7 +93,7 @@ figcaption {
 
 code {
   background: #ccc;
-  color: #000;
+  color: #eef;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -326,7 +326,7 @@ input,
 output,
 select,
 textarea {
-  accent-color: #00f;
+  accent-color: #000;
   border-radius: 0.25rem;
   border: 2px solid #000;
   color: #000;
@@ -364,7 +364,7 @@ button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-  background: #00f;
+  background: #000;
   border-color: #000;
   color: #fff;
   padding-left: 0.65rem;
@@ -377,7 +377,7 @@ button:focus,
 input[type=button]:focus,
 input[type=reset]:focus,
 input[type=submit]:focus {
-  background: #f00;
+  background: #00f;
   border-color: #000;
   color: #fff;
 }
@@ -398,7 +398,7 @@ input[type=reset][role=link]:focus,
 input[type=submit][role=link]:focus {
   background: 0 0;
   border-color: #00f;
-  color: #f00;
+  color: #00f;
 }
 
 input[type=image],
@@ -427,7 +427,7 @@ input[type=radio]:not(:checked)::after {
   visibility: hidden;
 }
 input[type=checkbox]::after {
-  border: 0 solid #00f;
+  border: 0 solid #000;
   border-width: 0 3px 3px 0;
   bottom: 4px;
   content: "";
@@ -438,13 +438,13 @@ input[type=checkbox]::after {
   transform: rotate(45deg) translate(-2px, 1px);
 }
 input[type=checkbox]:focus::after {
-  border-color: #f00;
+  border-color: #00f;
 }
 input[type=radio] {
   border-radius: 100%;
 }
 input[type=radio]::after {
-  background: #00f;
+  background: #000;
   border-radius: 100%;
   bottom: 4px;
   content: "";
@@ -454,7 +454,7 @@ input[type=radio]::after {
   top: 4px;
 }
 input[type=radio]:focus::after {
-  background: #f00;
+  background: #00f;
 }
 input[type=color] {
   height: 2.25rem;
@@ -465,7 +465,7 @@ input[type=file] {
   padding-inline-start: 0;
 }
 input[type=file]::file-selector-button {
-  background: #00f;
+  background: #000;
   border: 0 solid #000;
   border-inline-end-width: 2px;
   box-sizing: border-box;
@@ -480,11 +480,11 @@ input[type=file]::file-selector-button {
   width: auto;
 }
 input[type=file]::file-selector-button:focus {
-  background: #f00;
+  background: #00f;
   color: #fff;
 }
 input[type=file]:focus::file-selector-button {
-  background: #f00;
+  background: #00f;
   border-color: #00f;
   color: #fff;
 }
@@ -496,6 +496,8 @@ input[type=image] {
 input[type=range] {
   -webkit-appearance: none;
   appearance: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 input[type=range]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
@@ -506,10 +508,11 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background: #00f;
+  background: #000;
   border-radius: 0.25rem;
   border: 2px solid #000;
-  height: 1.5rem;
+  height: calc(1.5rem + 2px);
+  margin-top: -0.75rem;
   width: 0.5rem;
 }
 input[type=range]::-moz-range-track {
@@ -518,24 +521,25 @@ input[type=range]::-moz-range-track {
   height: 2px;
 }
 input[type=range]::-moz-range-thumb {
-  background: #00f;
+  background: #000;
   border-radius: 0.25rem;
   border: 2px solid #000;
-  height: 1.5rem;
+  height: calc(1.5rem + 2px);
+  margin-top: -0.75rem;
   width: 0.5rem;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #00f;
 }
 input[type=range]:focus::-webkit-slider-thumb {
-  background: #f00;
+  background: #00f;
   border-color: #000;
 }
 input[type=range]:focus::-moz-range-track {
   background: #00f;
 }
 input[type=range]:focus::-moz-range-thumb {
-  background: #f00;
+  background: #00f;
   border-color: #000;
 }
 

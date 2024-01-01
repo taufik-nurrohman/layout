@@ -1,31 +1,31 @@
-$color-alert: #000;
-$color-button--focus: #fff;
-$color-button: #fff;
-$color-code: #000;
-$color-input--focus: #000;
-$color-input: #000;
-$color-kbd: #000;
-$color-link--focus: #f00;
-$color-link: #00f;
-$color-mark: #000;
-$color-note: #000;
-$color-quote: #008;
-$color-title: #00a;
-$color: #000;
-$fill-alert: #ffa;
-$fill-button--focus: #f00;
-$fill-button: #00f;
-$fill-code: #ccc;
-$fill-kbd: #ccc;
-$fill-mark: #ff0;
-$fill-note: #def;
-$fill: #fff;
-$stroke-button--focus: #000;
-$stroke-button: #000;
-$stroke-input--focus: #00f;
-$stroke-input: #000;
-$stroke-quote: #def;
-$stroke: #00f;
+$color-alert: #000 !default;
+$color-button--focus: #fff !default;
+$color-button: #fff !default;
+$color-code: #eef !default;
+$color-input--focus: #000 !default;
+$color-input: #000 !default;
+$color-kbd: #000 !default;
+$color-link--focus: #f00 !default;
+$color-link: #00f !default;
+$color-mark: #000 !default;
+$color-note: #000 !default;
+$color-quote: #008 !default;
+$color-title: #00a !default;
+$color: #000 !default;
+$fill-alert: #ffa !default;
+$fill-button--focus: #00f !default;
+$fill-button: #000 !default;
+$fill-code: #ccc !default;
+$fill-kbd: #ccc !default;
+$fill-mark: #ff0 !default;
+$fill-note: #def !default;
+$fill: #fff !default;
+$stroke-button--focus: #000 !default;
+$stroke-button: #000 !default;
+$stroke-input--focus: #00f !default;
+$stroke-input: #000 !default;
+$stroke-quote: #def !default;
+$stroke: #00f !default;
 
 * {
   background: 0 0;
@@ -425,7 +425,7 @@ input[type='submit'] {
     &:focus {
       background: 0 0;
       border-color: $color-link;
-      color: $color-link--focus;
+      color: $color-link;
     }
   }
 }
@@ -541,6 +541,10 @@ input {
   &[type='range'] {
     -webkit-appearance: none;
     appearance: none;
+    padding: {
+      left: 0;
+      right: 0;
+    }
     &::-webkit-slider-runnable-track {
       -webkit-appearance: none;
       background: $stroke-input;
@@ -553,7 +557,8 @@ input {
       background: $fill-button;
       border-radius: 0.25rem;
       border: 2px solid $stroke-button;
-      height: 1.5rem;
+      height: calc(1.5rem + 2px);
+      margin-top: -0.75rem;
       width: 0.5rem;
     }
     &::-moz-range-track {
@@ -565,7 +570,8 @@ input {
       background: $fill-button;
       border-radius: 0.25rem;
       border: 2px solid $stroke-button;
-      height: 1.5rem;
+      height: calc(1.5rem + 2px);
+      margin-top: -0.75rem;
       width: 0.5rem;
     }
     &:focus {
