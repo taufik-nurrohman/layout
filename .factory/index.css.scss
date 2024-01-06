@@ -10,7 +10,6 @@ $color-link: #00f !default;
 $color-mark: #000 !default;
 $color-note: #000 !default;
 $color-quote: #008 !default;
-$color-title: #00a !default;
 $color: #000 !default;
 $fill-alert: #ffa !default;
 $fill-button--focus: #00f !default;
@@ -94,17 +93,6 @@ legend,
 strong,
 th {
   @extend b;
-}
-
-dt,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-legend {
-  color: $color-title;
 }
 
 blockquote {
