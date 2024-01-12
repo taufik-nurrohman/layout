@@ -582,6 +582,7 @@ input {
 input[id] {
   + label[for] {
     display: inline-block;
+    margin-left: 0.5em;
     vertical-align: middle;
   }
 }
@@ -591,6 +592,7 @@ label {
   input {
     + span {
       display: inline-block;
+      margin-left: 0.5em;
       vertical-align: middle;
     }
   }
