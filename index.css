@@ -312,6 +312,7 @@ output,
 select,
 textarea {
   accent-color: #000;
+  background: #fff;
   border: 2px solid #000;
   color: #000;
   display: inline-block;

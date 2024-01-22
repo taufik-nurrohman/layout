@@ -15,6 +15,7 @@ $fill-alert: #ffa !default;
 $fill-button--focus: #00f !default;
 $fill-button: #000 !default;
 $fill-code: #eef !default;
+$fill-input: #fff !default;
 $fill-kbd: #ccc !default;
 $fill-mark: #ff0 !default;
 $fill-note: #def !default;
@@ -352,6 +353,7 @@ output,
 select,
 textarea {
   accent-color: $fill-button;
+  background: $fill-input;
   border: 2px solid $stroke-input;
   color: $color-input;
   display: inline-block;
