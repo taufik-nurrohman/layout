@@ -9,25 +9,27 @@ $color-link--focus: #f00 !default;
 $color-link: #00f !default;
 $color-mark: #000 !default;
 $color-note: #000 !default;
-$color-quote: #008 !default;
+$color-quote: #000 !default;
 $color: #000 !default;
-$fill-alert: #ffa !default;
+$fill-alert: #ffc !default;
 $fill-button--focus: #00f !default;
 $fill-button: #000 !default;
-$fill-code: #eef !default;
+$fill-code: #eee !default;
 $fill-input: #fff !default;
 $fill-kbd: #ccc !default;
 $fill-mark: #ff0 !default;
-$fill-note: #def !default;
-$fill-th: #def !default;
+$fill-note: #fed !default;
+$fill-th: #eee !default;
 $fill: #fff !default;
 $stroke-button--focus: #000 !default;
 $stroke-button: #000 !default;
-$stroke-hr: #def !default;
+$stroke-hr: #eee !default;
 $stroke-input--focus: #00f !default;
 $stroke-input: #000 !default;
-$stroke-quote: #def !default;
-$stroke: #00f !default;
+$stroke-quote: #eee !default;
+$stroke: #000 !default;
+
+$blocks: address, article, aside, blockquote, details, div, dl, dt, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, main, nav, ol, p, pre, search, section, table, ul;
 
 * {
   background: 0 0;
@@ -47,7 +49,7 @@ $stroke: #00f !default;
   border: 0 solid $stroke;
   border-width: 5px 0 0;
   color: $color;
-  font: normal normal 16px/1.5 Verdana, Geneva, sans-serif;
+  font: normal normal 18px/1.5 serif;
   padding: 1.5rem;
   text-align: left;
 }
@@ -111,7 +113,7 @@ code {
   background: $fill-code;
   color: $color-code;
   display: inline-block;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   padding: 0 0.35em;
 }
 
@@ -305,36 +307,21 @@ video {
 }
 
 * {
-  + address,
-  + article,
-  + aside,
-  + blockquote,
-  + details,
-  + div,
-  + dl,
-  + dt,
-  + fieldset,
-  + figure,
-  + footer,
-  + form,
-  + h1,
-  + h2,
-  + h3,
-  + h4,
-  + h5,
-  + h6,
-  + header,
-  + hr,
-  + main,
-  + nav,
-  + ol,
-  + p,
-  + pre,
-  + section,
-  + table,
-  + ul {
-    margin: {
-      top: 1.5rem;
+  + :where(#{$blocks}) {
+    margin-top: 1.5rem;
+  }
+}
+
+li + li {
+  > :where(#{$blocks}) {
+    &:first-child {
+      margin-top: 1.5rem;
+    }
+  }
+  > ol,
+  > ul {
+    &:first-child {
+      margin-top: 0;
     }
   }
 }
