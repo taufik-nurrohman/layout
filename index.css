@@ -394,6 +394,8 @@ input[type=button]:focus,
 input[type=reset]:focus,
 input[type=submit]:focus {
   background: #00f;
+  border-color: #000;
+  color: #fff;
 }
 
 button[role=link],
@@ -495,10 +497,12 @@ input[type=file]::file-selector-button {
 }
 input[type=file]::file-selector-button:focus {
   background: #00f;
+  color: #fff;
 }
 input[type=file]:focus::file-selector-button {
   background: #00f;
   border-color: #00f;
+  color: #fff;
 }
 input[type=image] {
   height: auto;

@@ -471,12 +471,12 @@ input[type='submit'] {
     @if $fill-button--focus != $fill-button {
       background: $fill-button--focus;
     }
-    @if $stroke-button--focus != $stroke-button {
+    // @if $stroke-button--focus != $stroke-button {
       border-color: $stroke-button--focus;
-    }
-    @if $color-button--focus != $color-button {
+    // }
+    // @if $color-button--focus != $color-button {
       color: $color-button--focus;
-    }
+    // }
   }
 }
 
@@ -600,9 +600,9 @@ input {
         @if $fill-button--focus != $fill-button {
           background: $fill-button--focus;
         }
-        @if $color-button--focus != $color-button {
+        // @if $color-button--focus != $color-button {
           color: $color-button--focus;
-        }
+        // }
       }
     }
     &:focus {
@@ -610,12 +610,12 @@ input {
         @if $fill-button--focus != $fill-button {
           background: $fill-button--focus;
         }
-        @if $stroke-input--focus != $stroke-input {
+        // @if $stroke-input--focus != $stroke-input {
           border-color: $stroke-input--focus;
-        }
-        @if $color-button--focus != $color-button {
+        // }
+        // @if $color-button--focus != $color-button {
           color: $color-button--focus;
-        }
+        // }
       }
     }
   }
