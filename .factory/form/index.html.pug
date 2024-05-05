@@ -3,7 +3,7 @@ html(dir='ltr')
     meta(charset='utf-8')
     meta(content='width=device-width' name='viewport')
     title Form
-    link(href='../index.min.css' rel='stylesheet')
+    link(href='../index.min.css?v=1' rel='stylesheet')
     style
       | @media (min-width: 45rem) {
       |   :root {
@@ -22,13 +22,14 @@ html(dir='ltr')
         ul
           li: a(href='..') Home
           li: a(aria-current='page' href='') Form
+          li: a(href='../links') Links
           li: a(href='../list') List
-          li: a(href='../nav') Navigation
+          li: a(href='../table') Table
       h1 Form
       form
         fieldset
           legend Test Legend
-          p text #[button Button] #[input(type='button' value='Input Button')] #[span(role='button') Span] #[a(href='#' role='button') Anchor] text
+          p text #[button Button] #[input(type='button' value='Input Button')] #[span(role='button' tabindex='0') Fake Button] #[a(href='#' role='button') Link as Button] text
           p text #[button(role='link') Button] #[input(role='link' type='button' value='Input Button')] text
           p text #[input(type='text')] text
           p

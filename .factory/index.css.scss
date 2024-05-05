@@ -1,6 +1,7 @@
 $color-alert: #000 !default;
 $color-button--focus: #fff !default;
 $color-button: #fff !default;
+$color-caption: #555 !default;
 $color-code: #000 !default;
 $color-input--focus: #000 !default;
 $color-input: #000 !default;
@@ -29,8 +30,6 @@ $stroke-input: #000 !default;
 $stroke-quote: #eee !default;
 $stroke: #000 !default;
 
-$blocks: address, article, aside, blockquote, details, div, dl, dt, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, main, nav, ol, p, pre, search, section, table, ul;
-
 * {
   background: 0 0;
   border: 0;
@@ -44,12 +43,84 @@ $blocks: address, article, aside, blockquote, details, div, dl, dt, fieldset, fi
   word-wrap: break-word;
 }
 
+:where(
+  address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  ol,
+  p,
+  pre,
+  search,
+  section,
+  table,
+  ul
+):not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+li {
+  > :where(
+    address,
+    article,
+    aside,
+    blockquote,
+    dd,
+    details,
+    div,
+    dl,
+    dt,
+    fieldset,
+    figure,
+    footer,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    hgroup,
+    hr,
+    main,
+    nav,
+    p,
+    pre,
+    search,
+    section,
+    table
+  ):first-child {
+    margin-top: 1.5rem;
+  }
+}
+
 :root {
   background: $fill;
   border: 0 solid $stroke;
   border-width: 5px 0 0;
   color: $color;
-  font: normal normal 18px/1.5 serif;
+  font: normal normal 18px/1.5 Verdana, Geneva, sans-serif;
   padding: 1.5rem;
   text-align: left;
 }
@@ -85,7 +156,6 @@ u {
   text-decoration: underline;
 }
 
-dt,
 legend,
 strong,
 th {
@@ -105,7 +175,8 @@ blockquote {
 
 caption,
 figcaption {
-  margin: 0.5rem 0 0;
+  color: $color-caption;
+  margin: 1rem 0 0;
   text-align: center;
 }
 
@@ -177,9 +248,20 @@ h6 {
   font-size: 1.25em;
 }
 
+hgroup {
+  > p {
+    @extend h6;
+    color: $color-caption;
+  }
+}
+
 hr {
   border: 0;
   border-top: 2px dashed $stroke-hr;
+}
+
+dt {
+  @extend h6;
 }
 
 iframe {
@@ -211,6 +293,7 @@ label {
 }
 
 legend {
+  color: $color-caption;
   padding: 0 0.5rem;
 }
 
@@ -304,34 +387,6 @@ video {
   display: block;
   height: auto;
   width: 100%;
-}
-
-* {
-  + :where(#{$blocks}) {
-    margin-top: 1.5rem;
-  }
-}
-
-li + li {
-  > :where(#{$blocks}) {
-    &:first-child {
-      margin-top: 1.5rem;
-    }
-  }
-  > ol,
-  > ul {
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-}
-
-legend {
-  + * {
-    margin: {
-      top: 0;
-    }
-  }
 }
 
 button,
@@ -437,10 +492,10 @@ input {
       border-width: 0 3px 3px 0;
       bottom: 4px;
       content: "";
-      left: 8px;
+      left: 9px;
       position: absolute;
-      right: 4px;
-      top: 2px;
+      right: 5px;
+      top: 3px;
       transform: rotate(45deg) translate(-2px, 1px);
     }
     &:focus {
@@ -668,6 +723,7 @@ textarea {
 
 [role='link'] {
   @extend a;
+  cursor: pointer;
 }
 
 [role='mark'] {

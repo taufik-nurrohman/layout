@@ -1,4 +1,4 @@
 Layout
 ======
 
-CSS code as the basis for any type of layout.
+A base style suitable as a starting point for any web layout.

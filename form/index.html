@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width" name="viewport">
     <title>Form</title>
-    <link href="../index.min.css" rel="stylesheet">
+    <link href="../index.min.css?v=1" rel="stylesheet">
     <style>
       @media (min-width: 45rem) {
         :root {
@@ -25,15 +25,16 @@
         <ul>
           <li><a href="..">Home</a></li>
           <li><a aria-current="page" href="">Form</a></li>
+          <li><a href="../links">Links</a></li>
           <li><a href="../list">List</a></li>
-          <li><a href="../nav">Navigation</a></li>
+          <li><a href="../table">Table</a></li>
         </ul>
       </nav>
       <h1>Form</h1>
       <form>
         <fieldset>
           <legend>Test Legend</legend>
-          <p>text <button>Button</button> <input type="button" value="Input Button"> <span role="button">Span</span> <a href="#" role="button">Anchor</a> text</p>
+          <p>text <button>Button</button> <input type="button" value="Input Button"> <span role="button" tabindex="0">Fake Button</span> <a href="#" role="button">Link as Button</a> text</p>
           <p>text <button role="link">Button</button> <input role="link" type="button" value="Input Button"> text</p>
           <p>text <input type="text"> text</p>
           <p>text <select>

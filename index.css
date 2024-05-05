@@ -11,12 +11,80 @@
   word-wrap: break-word;
 }
 
+:where(address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hgroup > p,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  ol,
+  p,
+  pre,
+  search,
+  section,
+  table,
+  ul):not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+li > :where(address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hgroup > p,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  p,
+  pre,
+  search,
+  section,
+  table):first-child {
+  margin-top: 1.5rem;
+}
+
 :root {
   background: #fff;
   border: 0 solid #000;
   border-width: 5px 0 0;
   color: #000;
-  font: normal normal 18px/1.5 serif;
+  font: normal normal 18px/1.5 Verdana, Geneva, sans-serif;
   padding: 1.5rem;
   text-align: left;
 }
@@ -37,7 +105,6 @@ abbr {
 }
 
 b,
-dt,
 legend,
 strong,
 th {
@@ -76,7 +143,8 @@ blockquote {
 
 caption,
 figcaption {
-  margin: 0.5rem 0 0;
+  color: #555;
+  margin: 1rem 0 0;
   text-align: center;
 }
 
@@ -131,8 +199,14 @@ h5 {
   font-size: 1.563em;
 }
 
-h6 {
+h6,
+dt,
+hgroup > p {
   font-size: 1.25em;
+}
+
+hgroup > p {
+  color: #555;
 }
 
 hr {
@@ -172,6 +246,7 @@ details summary {
 }
 
 legend {
+  color: #555;
   padding: 0 0.5rem;
 }
 
@@ -268,22 +343,6 @@ video {
   display: block;
   height: auto;
   width: 100%;
-}
-
-* + :where(address, article, aside, blockquote, details, div, dl, dt, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, main, nav, ol, p, pre, search, section, table, ul) {
-  margin-top: 1.5rem;
-}
-
-li + li > :where(address, article, aside, blockquote, details, div, dl, dt, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, main, nav, ol, p, pre, search, section, table, ul):first-child {
-  margin-top: 1.5rem;
-}
-li + li > ol:first-child,
-li + li > ul:first-child {
-  margin-top: 0;
-}
-
-legend + * {
-  margin-top: 0;
 }
 
 button,
@@ -397,10 +456,10 @@ input[type=checkbox]::after {
   border-width: 0 3px 3px 0;
   bottom: 4px;
   content: "";
-  left: 8px;
+  left: 9px;
   position: absolute;
-  right: 4px;
-  top: 2px;
+  right: 5px;
+  top: 3px;
   transform: rotate(45deg) translate(-2px, 1px);
 }
 input[type=checkbox]:focus::after {
@@ -597,6 +656,10 @@ textarea {
 }
 [role=group][aria-orientation=vertical] {
   flex-direction: column;
+}
+
+[role=link] {
+  cursor: pointer;
 }
 
 [role=note] {
