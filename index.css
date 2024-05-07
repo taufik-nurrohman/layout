@@ -171,6 +171,7 @@ figure img,
 figure video {
   border: 1px solid;
   display: block;
+  margin: 0 auto;
 }
 
 /* <https://www.modularscale.com/?16&px&1.25> */
