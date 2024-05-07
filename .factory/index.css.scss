@@ -209,6 +209,11 @@ details {
   summary {
     @extend a, label;
   }
+  &[open] {
+    > summary {
+      margin-bottom: 1.5rem;
+    }
+  }
 }
 
 dfn,

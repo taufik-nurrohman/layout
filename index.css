@@ -151,6 +151,10 @@ code {
   padding: 0 0.35em;
 }
 
+details[open] > summary {
+  margin-bottom: 1.5rem;
+}
+
 dl,
 ol,
 ul {
