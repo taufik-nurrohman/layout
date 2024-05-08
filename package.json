@@ -6,5 +6,6 @@
   "scripts": {
     "pack": "pack --clean=false --from=.factory --to=."
   },
-  "type": "module"
+  "type": "module",
+  "version": "1.0.2"
 }
