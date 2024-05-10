@@ -48,7 +48,7 @@
   margin-bottom: 1.5rem;
 }
 
-li > :where(address,
+li:where(:not(:first-child)) > :where(address,
   article,
   aside,
   blockquote,
