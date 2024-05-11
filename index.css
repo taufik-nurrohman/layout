@@ -13,6 +13,13 @@
   word-wrap: break-word;
 }
 
+::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
 :where(address,
   article,
   aside,
@@ -414,15 +421,6 @@ output:focus,
 select:focus,
 textarea:focus {
   border-color: #00f;
-}
-
-button::-moz-focus-inner,
-[role=button]::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  margin: 0;
-  outline: 0;
-  padding: 0;
 }
 
 button,

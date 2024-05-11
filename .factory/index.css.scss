@@ -45,6 +45,13 @@ $stroke: #000 !default;
   word-wrap: break-word;
 }
 
+::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
 :where(
   address,
   article,
@@ -459,16 +466,6 @@ textarea {
     @if $color-input--focus != $color-input {
       color: $color-input--focus;
     }
-  }
-}
-
-button,
-input {
-  &::-moz-focus-inner {
-    border: 0;
-    margin: 0;
-    outline: 0;
-    padding: 0;
   }
 }
 
