@@ -7,5 +7,5 @@
     "pack": "pack --clean=false --from=.factory --to=."
   },
   "type": "module",
-  "version": "1.0.2"
+  "version": "1.0.3"
 }

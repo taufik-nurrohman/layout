@@ -77,8 +77,10 @@ $stroke: #000 !default;
   section,
   table,
   ul
-):where(:not(:last-child)) {
-  margin-bottom: 1.5rem;
+) {
+  & + & {
+    margin-top: 1.5rem;
+  }
 }
 
 li {
