@@ -790,6 +790,9 @@ textarea {
 
 [role='button'] {
   @extend button;
+  &:not(:any-link) {
+    @extend :disabled;
+  }
 }
 
 [role='deletion'] {

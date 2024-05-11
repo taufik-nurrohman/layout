@@ -664,7 +664,8 @@ textarea {
   resize: vertical;
 }
 
-:disabled {
+:disabled,
+[role=button]:not(:any-link) {
   opacity: 0.5;
   cursor: not-allowed;
 }
