@@ -250,13 +250,13 @@ fieldset {
 
 figure {
   text-align: center;
-  audio,
-  iframe,
-  img,
-  video {
+  img {
     border: 1px solid;
     display: block;
-    margin: 0 auto;
+    margin: {
+      left: auto;
+      right: auto;
+    }
   }
 }
 

@@ -209,13 +209,11 @@ fieldset {
 figure {
   text-align: center;
 }
-figure audio,
-figure iframe,
-figure img,
-figure video {
+figure img {
   border: 1px solid;
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* <https://www.modularscale.com/?16&px&1.25> */
