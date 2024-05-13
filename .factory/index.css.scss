@@ -140,7 +140,7 @@ li {
   text-align: left;
 }
 
-a {
+%a {
   @if $color-link != inherit {
     color: $color-link;
   }
@@ -151,40 +151,79 @@ a {
   }
 }
 
-abbr {
-  cursor: help;
-}
-
-b {
+%b {
   font-weight: bold;
 }
 
-i {
+%i {
   font-style: italic;
 }
 
-q {
+%input {
+  accent-color: $fill-button;
+  background: $fill-input;
+  border: 2px solid $stroke-input;
+  @if $color-input != inherit {
+    color: $color-input;
+  }
+  display: inline-block;
+  height: 2.25rem;
+  line-height: calc(2.25rem - 4px); /* Minus the `border-width` */
+  outline: 0;
+  padding: 0 0.5rem;
+  position: relative;
+  vertical-align: middle;
+  width: 18.5rem;
+  &:focus {
+    @if $stroke-input--focus != $stroke-input {
+      border-color: $stroke-input--focus;
+    }
+    @if $color-input--focus != $color-input {
+      color: $color-input--focus;
+    }
+  }
+}
+
+%label {
+  cursor: pointer;
+  user-select: none;
+}
+
+%q {
   @if $color-quote != inherit {
     color: $color-quote;
   }
 }
 
-s {
+%s {
   text-decoration: line-through;
 }
 
-u {
+%small {
+
+}
+
+%u {
   text-decoration: underline;
 }
 
+a {
+  @extend %a;
+}
+
+abbr {
+  cursor: help;
+}
+
+b,
 legend,
 strong,
 th {
-  @extend b;
+  @extend %b;
 }
 
 blockquote {
-  @extend q;
+  @extend %q;
   border: {
     inline-start: 5px solid $stroke-quote;
   }
@@ -214,13 +253,14 @@ code {
   padding: 0 0.35em;
 }
 
-del {
-  @extend s;
+del,
+s {
+  @extend %s;
 }
 
 details {
-  summary {
-    @extend a, label;
+  > summary {
+    @extend %a, %label;
   }
   &[open] {
     > summary {
@@ -231,15 +271,29 @@ details {
 
 dfn,
 em,
+i,
 var {
-  @extend i;
+  @extend %i;
 }
 
-dl,
+dl {
+  margin: {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+dt {
+  @extend h6;
+}
+
 ol,
 ul {
   margin: {
-    left: 1.5rem;
+    left: 2rem;
+  }
+  & & {
+    margin-left: 1.5rem;
   }
 }
 
@@ -260,40 +314,50 @@ figure {
   }
 }
 
+
 /* <https://www.modularscale.com/?16&px&1.25> */
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  @extend %b;
   line-height: 1.25;
 }
+
 h1 {
   font-size: 3.815em;
 }
+
 h2 {
   font-size: 3.052em;
 }
+
 h3 {
   font-size: 2.441em;
 }
+
 h4 {
   font-size: 1.953em;
 }
+
 h5 {
   font-size: 1.563em;
 }
+
 h6 {
   font-size: 1.25em;
 }
 
+
 hgroup {
   > p {
-    @extend h5;
     @if $color-caption != inherit {
       color: $color-caption;
     }
+    font-size: 1.563em;
   }
 }
 
@@ -301,22 +365,14 @@ hr {
   border-top: 2px dashed $stroke-hr;
 }
 
-dt {
-  @extend h6;
-}
-
-iframe {
-  display: block;
-  width: 100%;
-}
-
 img {
   max-width: 100%;
   height: auto;
 }
 
-ins {
-  @extend u;
+ins,
+u {
+  @extend %u;
 }
 
 kbd {
@@ -330,8 +386,11 @@ kbd {
 }
 
 label {
-  cursor: pointer;
-  user-select: none;
+  @extend %label;
+  align-items: center;
+  display: inline-flex;
+  gap: 0.5em;
+  vertical-align: middle;
 }
 
 legend {
@@ -377,6 +436,10 @@ pre {
     padding: 0.75rem 1rem;
     white-space: pre-wrap;
   }
+}
+
+q {
+  @extend %q;
 }
 
 small,
@@ -429,6 +492,7 @@ ul {
 
 audio,
 iframe,
+picture,
 video {
   @if $color != inherit {
     background: $color;
@@ -443,35 +507,25 @@ input,
 output,
 select,
 textarea {
-  accent-color: $fill-button;
-  background: $fill-input;
-  border: 2px solid $stroke-input;
-  @if $color-input != inherit {
-    color: $color-input;
-  }
-  display: inline-block;
-  height: 2.25rem;
-  line-height: calc(2.25rem - 4px); /* Minus the `border-width` */
-  outline: 0;
-  padding: 0 0.5rem;
-  position: relative;
-  vertical-align: middle;
-  width: 18.5rem;
-  &:focus {
-    @if $stroke-input--focus != $stroke-input {
-      border-color: $stroke-input--focus;
-    }
-    @if $color-input--focus != $color-input {
-      color: $color-input--focus;
-    }
-  }
+  @extend %input;
 }
 
-button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
-  @extend label;
+button {
+  @extend %label;
+  &[role='link'] {
+    background: 0 0;
+    border-color: transparent;
+    @if $color-link != inherit {
+      color: $color-link;
+    }
+    &:focus {
+      background: 0 0;
+      @if $color-link != inherit {
+        border-color: $color-link;
+        color: $color-link;
+      }
+    }
+  }
   background: $fill-button;
   border-color: $stroke-button;
   @if $color-button != inherit {
@@ -496,27 +550,12 @@ input[type='submit'] {
   }
 }
 
-button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
-  &[role='link'] {
-    background: 0 0;
-    border-color: transparent;
-    @if $color-link != inherit {
-      color: $color-link;
-    }
-    &:focus {
-      background: 0 0;
-      @if $color-link != inherit {
-        border-color: $color-link;
-        color: $color-link;
-      }
-    }
-  }
-}
-
 input {
+  &[type='button'],
+  &[type='reset'],
+  &[type='submit'] {
+    @extend button;
+  }
   &[type='image'],
   &[type='range'] {
     background: 0 0;
@@ -528,7 +567,7 @@ input {
   &[type='image'],
   &[type='radio'],
   &[type='range'] {
-    cursor: pointer;
+    @extend %label;
   }
   &[type='checkbox'],
   &[type='radio'] {
@@ -710,25 +749,12 @@ input {
 // `<input id="radio" type="radio"> <label for="radio">Radio</label>`
 input[id] {
   + label[for] {
-    display: inline-block;
     margin-left: 0.5em;
-    vertical-align: middle;
-  }
-}
-
-// `<label><input type="radio"> <span>Radio</span></label>`
-label {
-  input {
-    + span {
-      display: inline-block;
-      margin-left: 0.5em;
-      vertical-align: middle;
-    }
   }
 }
 
 select {
-  @extend label;
+  @extend %label;
   -webkit-appearance: none;
   appearance: none;
   &[multiple] {
@@ -741,12 +767,10 @@ select {
   }
 }
 
-::-moz-color-swatch {
-  border: 0;
-}
-
-::-webkit-color-swatch {
-  border: 0;
+@each $v in (-moz-color-swatch, -webkit-color-swatch) {
+  ::#{$v} {
+    border: 0;
+  }
 }
 
 ::-webkit-color-swatch-wrapper {
@@ -800,7 +824,7 @@ textarea {
 [role='group'] {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   &[aria-orientation='vertical'] {
     flex-direction: column;
