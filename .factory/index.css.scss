@@ -135,7 +135,7 @@ li {
   @if $color != inherit {
     color: $color;
   }
-  font: normal normal 16px/1.5 serif;
+  font: normal normal 16px/1.5 sans-serif;
   padding: 1.5rem;
   text-align: left;
 }
