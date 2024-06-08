@@ -121,7 +121,7 @@ li:where(:not(:first-child)) > :where(address,
   border: 0 solid #000;
   border-width: 5px 0 0;
   color: #000;
-  font: normal normal 18px/1.5 serif;
+  font: normal normal 16px/1.5 serif;
   padding: 1.5rem;
   text-align: left;
 }
