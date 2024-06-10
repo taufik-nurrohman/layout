@@ -330,11 +330,6 @@ img {
   height: auto;
 }
 
-kbd {
-  display: inline-block;
-  padding: 0 0.35rem;
-}
-
 label {
   align-items: center;
   display: inline-flex;
@@ -688,6 +683,10 @@ textarea {
 
 [role=note] {
   background: #fed;
+}
+
+[role=status] {
+  color: #888;
 }
 
 @media (max-width: 700px) {

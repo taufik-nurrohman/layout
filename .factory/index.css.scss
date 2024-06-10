@@ -10,6 +10,7 @@ $color-link: #00f !default;
 $color-mark: inherit !default;
 $color-note: inherit !default;
 $color-quote: inherit !default;
+$color-status: #888 !default;
 $color: #000 !default;
 $fill-alert: #ffc !default;
 $fill-button--focus: #00f !default;
@@ -372,11 +373,6 @@ img {
 ins,
 u {
   @extend %u;
-}
-
-kbd {
-  display: inline-block;
-  padding: 0 0.35rem;
 }
 
 label {
@@ -843,6 +839,12 @@ textarea {
   background: $fill-note;
   @if $color-note != inherit {
     color: $color-note;
+  }
+}
+
+[role='status'] {
+  @if $color-status != inherit {
+    color: $color-status;
   }
 }
 
