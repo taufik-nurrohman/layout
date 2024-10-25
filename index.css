@@ -449,6 +449,15 @@ input[type=submit] {
   text-align: center;
   width: auto;
 }
+button:focus,
+[role=button]:focus,
+input[type=button]:focus,
+input[type=reset]:focus,
+input[type=submit]:focus {
+  background: #00f;
+  border-color: #000;
+  color: #fff;
+}
 button[role=link],
 [role=link][role=button],
 input[role=link][type=button],
@@ -466,15 +475,6 @@ input[role=link][type=submit]:focus {
   background: 0 0;
   border-color: #00f;
   color: #00f;
-}
-button:focus,
-[role=button]:focus,
-input[type=button]:focus,
-input[type=reset]:focus,
-input[type=submit]:focus {
-  background: #00f;
-  border-color: #000;
-  color: #fff;
 }
 
 input[type=image],

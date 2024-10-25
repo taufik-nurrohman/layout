@@ -502,20 +502,6 @@ textarea {
 
 button {
   @extend %label;
-  &[role='link'] {
-    background: 0 0;
-    border-color: transparent;
-    @if $color-link != inherit {
-      color: $color-link;
-    }
-    &:focus {
-      background: 0 0;
-      @if $color-link != inherit {
-        border-color: $color-link;
-        color: $color-link;
-      }
-    }
-  }
   background: $fill-button;
   border-color: $stroke-button;
   @if $color-button != inherit {
@@ -537,6 +523,20 @@ button {
     // @if $color-button--focus != $color-button {
       color: $color-button--focus;
     // }
+  }
+  &[role='link'] {
+    background: 0 0;
+    border-color: transparent;
+    @if $color-link != inherit {
+      color: $color-link;
+    }
+    &:focus {
+      background: 0 0;
+      @if $color-link != inherit {
+        border-color: $color-link;
+        color: $color-link;
+      }
+    }
   }
 }
 
