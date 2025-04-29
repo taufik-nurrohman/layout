@@ -1,0 +1,41 @@
+html(dir='ltr')
+  head
+    meta(charset='utf-8')
+    meta(content='width=device-width' name='viewport')
+    title Anchor
+    link(href='../index.min.css?v=%(version)' rel='stylesheet')
+    link(href='index.min.css?v=%(version)' rel='stylesheet')
+    style
+      | @media (min-width: 45rem) {
+      |   :root {
+      |     padding-bottom: 3rem;
+      |     padding-top: 3rem;
+      |   }
+      |   body > * {
+      |     margin-left: auto;
+      |     margin-right: auto;
+      |     max-width: 45rem;
+      |   }
+      | }
+  body
+    main
+      nav
+        ul
+          li: a(href='..') Home
+          li: a(aria-current='page' href='') Anchor
+          li: a(href='../form') Form
+          li: a(href='../links') Links
+          li: a(href='../list') List
+          li: a(href='../table') Table
+      h1 Anchor
+      div(role='note')
+        p This feature is optional. You will need to manually include the CSS file after the core CSS file, as shown below:
+        pre: code
+          | &lt;link href="#[a(href='../index.min.css' target='_blank') ./index.min.css]" rel="stylesheet"&gt;
+          | &lt;link href="#[a(href='index.min.css' target='_blank') ./anchor/index.min.css]" rel="stylesheet"&gt;
+      h2#anchor-1
+        a(aria-hidden='true' href='#anchor-1')
+        = ' Anchor 1'
+      h2#anchor-2
+        a(aria-hidden='true' href='#anchor-2') &sect;
+        = ' Anchor 2 (Custom)'
