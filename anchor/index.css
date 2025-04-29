@@ -1,3 +1,8 @@
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
 :where([role=heading], h1, h2, h3, h4, h5, h6)[id] {
   align-items: center;
   display: flex;
