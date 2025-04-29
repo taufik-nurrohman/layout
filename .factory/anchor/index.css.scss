@@ -9,9 +9,6 @@
     align-items: center;
     display: flex;
     gap: 0.25em;
-    &:target {
-      background: #ff0;
-    }
     > a {
       &[aria-hidden='true'] {
         &[href^='#'] {
@@ -19,6 +16,15 @@
             &::after {
               content: '#';
             }
+          }
+        }
+      }
+    }
+    &:target {
+      > a {
+        &[aria-hidden='true'] {
+          &[href^='#'] {
+            color: inherit;
           }
         }
       }

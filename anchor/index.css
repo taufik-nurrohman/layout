@@ -8,9 +8,9 @@
   display: flex;
   gap: 0.25em;
 }
-:where([role=heading], h1, h2, h3, h4, h5, h6)[id]:target {
-  background: #ff0;
-}
 :where([role=heading], h1, h2, h3, h4, h5, h6)[id] > a[aria-hidden=true][href^="#"]:empty::after {
   content: "#";
+}
+:where([role=heading], h1, h2, h3, h4, h5, h6)[id]:target > a[aria-hidden=true][href^="#"] {
+  color: inherit;
 }
