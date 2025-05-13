@@ -1,33 +1,33 @@
-$color-alert: inherit !default;
-$color-button--focus: #fff !default;
-$color-button: #fff !default;
-$color-caption: #555 !default;
-$color-code: inherit !default;
-$color-input--focus: inherit !default;
-$color-input: inherit !default;
-$color-link--focus: #f00 !default;
-$color-link: #00f !default;
-$color-mark: inherit !default;
-$color-note: inherit !default;
-$color-quote: inherit !default;
-$color-status: #888 !default;
+$alert-color: inherit !default;
+$alert-fill: #ffc !default;
+$button-color--focus: #fff !default;
+$button-color: #fff !default;
+$button-fill--focus: #00f !default;
+$button-fill: #000 !default;
+$button-stroke--focus: #000 !default;
+$button-stroke: #000 !default;
+$caption-color: #555 !default;
+$code-color: inherit !default;
+$code-fill: #eee !default;
 $color: #000 !default;
-$fill-alert: #ffc !default;
-$fill-button--focus: #00f !default;
-$fill-button: #000 !default;
-$fill-code: #eee !default;
-$fill-input: #fff !default;
-$fill-mark: #ff0 !default;
-$fill-note: #fed !default;
-$fill-th: #eee !default;
 $fill: #fff !default;
-$stroke-button--focus: #000 !default;
-$stroke-button: #000 !default;
-$stroke-hr: #eee !default;
-$stroke-input--focus: #00f !default;
-$stroke-input: #000 !default;
-$stroke-quote: #eee !default;
+$input-color--focus: inherit !default;
+$input-color: inherit !default;
+$input-fill: #fff !default;
+$input-stroke--focus: #00f !default;
+$input-stroke: #000 !default;
+$link-color--focus: #f00 !default;
+$link-color: #00f !default;
+$mark-color: inherit !default;
+$mark-fill: #ff0 !default;
+$note-color: inherit !default;
+$note-fill: #fed !default;
+$quote-color: inherit !default;
+$quote-stroke: #eee !default;
+$rule-stroke: #eee !default;
+$status-color: #888 !default;
 $stroke: #000 !default;
+$table-header-fill: #eee !default;
 
 *,
 ::after,
@@ -140,12 +140,12 @@ li {
 }
 
 %a {
-  @if $color-link != inherit {
-    color: $color-link;
+  @if $link-color != inherit {
+    color: $link-color;
   }
   &:focus {
-    @if $color-link--focus != $color-link {
-      color: $color-link--focus;
+    @if $link-color--focus != $link-color {
+      color: $link-color--focus;
     }
   }
 }
@@ -159,11 +159,11 @@ li {
 }
 
 %input {
-  accent-color: $fill-button;
-  background: $fill-input;
-  border: 2px solid $stroke-input;
-  @if $color-input != inherit {
-    color: $color-input;
+  accent-color: $button-fill;
+  background: $input-fill;
+  border: 2px solid $input-stroke;
+  @if $input-color != inherit {
+    color: $input-color;
   }
   display: inline-block;
   height: 2.25rem;
@@ -174,11 +174,11 @@ li {
   vertical-align: middle;
   width: 18.5rem;
   &:focus {
-    @if $stroke-input--focus != $stroke-input {
-      border-color: $stroke-input--focus;
+    @if $input-stroke--focus != $input-stroke {
+      border-color: $input-stroke--focus;
     }
-    @if $color-input--focus != $color-input {
-      color: $color-input--focus;
+    @if $input-color--focus != $input-color {
+      color: $input-color--focus;
     }
   }
 }
@@ -189,8 +189,8 @@ li {
 }
 
 %q {
-  @if $color-quote != inherit {
-    color: $color-quote;
+  @if $quote-color != inherit {
+    color: $quote-color;
   }
 }
 
@@ -199,7 +199,7 @@ li {
 }
 
 %small {
-
+  font-size: 0.8em;
 }
 
 %u {
@@ -225,7 +225,7 @@ th {
 blockquote {
   @extend %q;
   border: {
-    inline-start: 5px solid $stroke-quote;
+    inline-start: 5px solid $quote-stroke;
   }
   font-size: 1.185rem;
   padding: {
@@ -235,17 +235,17 @@ blockquote {
 
 caption,
 figcaption {
-  @if $color-caption != inherit {
-    color: $color-caption;
+  @if $caption-color != inherit {
+    color: $caption-color;
   }
   margin: 1rem 0 0;
   text-align: center;
 }
 
 code {
-  background: $fill-code;
-  @if $color-code != inherit {
-    color: $color-code;
+  background: $code-fill;
+  @if $code-color != inherit {
+    color: $code-color;
   }
   display: inline-block;
   font-family: monospace;
@@ -354,15 +354,15 @@ h6 {
 
 hgroup {
   > p {
-    @if $color-caption != inherit {
-      color: $color-caption;
+    @if $caption-color != inherit {
+      color: $caption-color;
     }
     font-size: 1.563em;
   }
 }
 
 hr {
-  border-top: 2px dashed $stroke-hr;
+  border-top: 2px dashed $rule-stroke;
 }
 
 img {
@@ -384,16 +384,16 @@ label {
 }
 
 legend {
-  @if $color-caption != inherit {
-    color: $color-caption;
+  @if $caption-color != inherit {
+    color: $caption-color;
   }
   padding: 0 0.5rem;
 }
 
 mark {
-  background: $fill-mark;
-  @if $color-mark != inherit {
-    color: $color-mark;
+  background: $mark-fill;
+  @if $mark-color != inherit {
+    color: $mark-color;
   }
 }
 
@@ -435,7 +435,7 @@ q {
 small,
 sub,
 sup {
-  font-size: 0.8em;
+  @extend %small;
 }
 
 sub, sup {
@@ -472,7 +472,7 @@ table {
     vertical-align: top;
   }
   th {
-    background: $fill-th;
+    background: $table-header-fill;
   }
 }
 
@@ -502,10 +502,10 @@ textarea {
 
 button {
   @extend %label;
-  background: $fill-button;
-  border-color: $stroke-button;
-  @if $color-button != inherit {
-    color: $color-button;
+  background: $button-fill;
+  border-color: $button-stroke;
+  @if $button-color != inherit {
+    color: $button-color;
   }
   padding: {
     left: 0.65rem;
@@ -514,27 +514,27 @@ button {
   text-align: center;
   width: auto;
   &:focus {
-    @if $fill-button--focus != $fill-button {
-      background: $fill-button--focus;
+    @if $button-fill--focus != $button-fill {
+      background: $button-fill--focus;
     }
-    // @if $stroke-button--focus != $stroke-button {
-      border-color: $stroke-button--focus;
+    // @if $button-stroke--focus != $button-stroke {
+      border-color: $button-stroke--focus;
     // }
-    // @if $color-button--focus != $color-button {
-      color: $color-button--focus;
+    // @if $button-color--focus != $button-color {
+      color: $button-color--focus;
     // }
   }
   &[role='link'] {
     background: 0 0;
     border-color: transparent;
-    @if $color-link != inherit {
-      color: $color-link;
+    @if $link-color != inherit {
+      color: $link-color;
     }
     &:focus {
       background: 0 0;
-      @if $color-link != inherit {
-        border-color: $color-link;
-        color: $color-link;
+      @if $link-color != inherit {
+        border-color: $link-color;
+        color: $link-color;
       }
     }
   }
@@ -574,8 +574,8 @@ input {
   }
   &[type='checkbox'] {
     &::after {
-      border: 0 solid $fill-button;
-      border-width: 0 3px 3px 0;
+      border: 0 solid $button-fill;
+      border-width: 0 2px 2px 0;
       bottom: 4px;
       content: "";
       left: 9px;
@@ -586,8 +586,8 @@ input {
     }
     &:focus {
       &::after {
-        @if $fill-button--focus != $fill-button {
-          border-color: $fill-button--focus;
+        @if $button-fill--focus != $button-fill {
+          border-color: $button-fill--focus;
         }
       }
     }
@@ -595,7 +595,7 @@ input {
   &[type='radio'] {
     border-radius: 100%;
     &::after {
-      background: $fill-button;
+      background: $button-fill;
       border-radius: 100%;
       bottom: 4px;
       content: "";
@@ -606,8 +606,8 @@ input {
     }
     &:focus {
       &::after {
-        @if $fill-button--focus != $fill-button {
-          background: $fill-button--focus;
+        @if $button-fill--focus != $button-fill {
+          background: $button-fill--focus;
         }
       }
     }
@@ -622,12 +622,12 @@ input {
       inline-start: 0;
     }
     &::file-selector-button {
-      background: $fill-button;
-      border: 0 solid $stroke-input;
+      background: $button-fill;
+      border: 0 solid $input-stroke;
       border-inline-end-width: 2px;
       box-sizing: border-box;
-      @if $color-button != inherit {
-        color: $color-button;
+      @if $button-color != inherit {
+        color: $button-color;
       }
       font: inherit;
       margin: 0;
@@ -642,24 +642,24 @@ input {
       text-align: center;
       width: auto;
       &:focus {
-        @if $fill-button--focus != $fill-button {
-          background: $fill-button--focus;
+        @if $button-fill--focus != $button-fill {
+          background: $button-fill--focus;
         }
-        // @if $color-button--focus != $color-button {
-          color: $color-button--focus;
+        // @if $button-color--focus != $button-color {
+          color: $button-color--focus;
         // }
       }
     }
     &:focus {
       &::file-selector-button {
-        @if $fill-button--focus != $fill-button {
-          background: $fill-button--focus;
+        @if $button-fill--focus != $button-fill {
+          background: $button-fill--focus;
         }
-        // @if $stroke-input--focus != $stroke-input {
-          border-color: $stroke-input--focus;
+        // @if $input-stroke--focus != $input-stroke {
+          border-color: $input-stroke--focus;
         // }
-        // @if $color-button--focus != $color-button {
-          color: $color-button--focus;
+        // @if $button-color--focus != $button-color {
+          color: $button-color--focus;
         // }
       }
     }
@@ -678,58 +678,58 @@ input {
     }
     &::-webkit-slider-runnable-track {
       -webkit-appearance: none;
-      background: $stroke-input;
+      background: $input-stroke;
       border: 0;
       height: 2px;
       overflow: visible;
     }
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
-      background: $fill-button;
+      background: $button-fill;
       border-radius: 0;
-      border: 2px solid $stroke-button;
+      border: 2px solid $button-stroke;
       height: calc(1.5rem + 2px);
       margin-top: -0.75rem;
       width: 0.5rem;
     }
     &::-moz-range-track {
-      background: $stroke-input;
+      background: $input-stroke;
       border: 0;
       height: 2px;
     }
     &::-moz-range-thumb {
-      background: $fill-button;
+      background: $button-fill;
       border-radius: 0;
-      border: 2px solid $stroke-button;
+      border: 2px solid $button-stroke;
       height: calc(1.5rem + 2px);
       margin-top: -0.75rem;
       width: 0.5rem;
     }
     &:focus {
       &::-webkit-slider-runnable-track {
-        @if $stroke-input--focus != $stroke-input {
-          background: $stroke-input--focus;
+        @if $input-stroke--focus != $input-stroke {
+          background: $input-stroke--focus;
         }
       }
       &::-webkit-slider-thumb {
-        @if $fill-button--focus != $fill-button {
-          background: $fill-button--focus;
+        @if $button-fill--focus != $button-fill {
+          background: $button-fill--focus;
         }
-        @if $stroke-button--focus != $stroke-button {
-          border-color: $stroke-button--focus;
+        @if $button-stroke--focus != $button-stroke {
+          border-color: $button-stroke--focus;
         }
       }
       &::-moz-range-track {
-        @if $stroke-input--focus != $stroke-input {
-          background: $stroke-input--focus;
+        @if $input-stroke--focus != $input-stroke {
+          background: $input-stroke--focus;
         }
       }
       &::-moz-range-thumb {
-        @if $fill-button--focus != $fill-button {
-          background: $fill-button--focus;
+        @if $button-fill--focus != $button-fill {
+          background: $button-fill--focus;
         }
-        @if $stroke-button--focus != $stroke-button {
-          border-color: $stroke-button--focus;
+        @if $button-stroke--focus != $button-stroke {
+          border-color: $button-stroke--focus;
         }
       }
     }
@@ -793,9 +793,9 @@ textarea {
 }
 
 [role='alert'] {
-  background: $fill-alert;
-  @if $color-alert != inherit {
-    color: $color-alert;
+  background: $alert-fill;
+  @if $alert-color != inherit {
+    color: $alert-color;
   }
   padding: 0.75rem 1rem;
 }
@@ -836,15 +836,15 @@ textarea {
 
 [role='note'] {
   @extend [role='alert'];
-  background: $fill-note;
-  @if $color-note != inherit {
-    color: $color-note;
+  background: $note-fill;
+  @if $note-color != inherit {
+    color: $note-color;
   }
 }
 
 [role='status'] {
-  @if $color-status != inherit {
-    color: $color-status;
+  @if $status-color != inherit {
+    color: $status-color;
   }
 }
 

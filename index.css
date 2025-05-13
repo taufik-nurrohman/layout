@@ -214,6 +214,12 @@ s {
   text-decoration: line-through;
 }
 
+small,
+sub,
+sup {
+  font-size: 0.8em;
+}
+
 ins,
 [role=insertion],
 u {
@@ -377,12 +383,6 @@ pre code {
   white-space: pre-wrap;
 }
 
-small,
-sub,
-sup {
-  font-size: 0.8em;
-}
-
 sub,
 sup {
   line-height: 0;
@@ -496,7 +496,7 @@ input[type=radio]:not(:checked)::after {
 }
 input[type=checkbox]::after {
   border: 0 solid #000;
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   bottom: 4px;
   content: "";
   left: 9px;
